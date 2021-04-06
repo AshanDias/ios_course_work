@@ -1,0 +1,6 @@
+framework module Pods_Ashan_Dias_cobsccomp192p_028 {
+  umbrella header "Pods-Ashan_Dias_cobsccomp192p_028-umbrella.h"
+
+  export *
+  module * { export * }
+}

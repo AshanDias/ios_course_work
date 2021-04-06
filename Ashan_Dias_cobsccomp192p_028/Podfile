@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Ashan_Dias_cobsccomp192p_028' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Ashan_Dias_cobsccomp192p_028
+ pod 'Firebase/Auth'
+ pod 'Firebase/Database'
+
+  target 'Ashan_Dias_cobsccomp192p_028Tests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'Ashan_Dias_cobsccomp192p_028UITests' do
+    # Pods for testing
+  end
+
+end

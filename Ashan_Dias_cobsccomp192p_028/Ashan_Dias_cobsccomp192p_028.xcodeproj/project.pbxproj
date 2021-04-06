@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		319ABF0C821D3727C6D86358 /* Pods_Ashan_Dias_cobsccomp192p_028_Ashan_Dias_cobsccomp192p_028UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC168F62951DE55B36B9E4E /* Pods_Ashan_Dias_cobsccomp192p_028_Ashan_Dias_cobsccomp192p_028UITests.framework */; };
 		9897565F261C675300126288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897565E261C675300126288 /* AppDelegate.swift */; };
 		98975661261C675300126288 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98975660261C675300126288 /* SceneDelegate.swift */; };
 		98975663261C675300126288 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98975662261C675300126288 /* ViewController.swift */; };
@@ -15,6 +16,8 @@
 		9897566B261C675400126288 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98975669261C675400126288 /* LaunchScreen.storyboard */; };
 		98975676261C675400126288 /* Ashan_Dias_cobsccomp192p_028Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98975675261C675400126288 /* Ashan_Dias_cobsccomp192p_028Tests.swift */; };
 		98975681261C675400126288 /* Ashan_Dias_cobsccomp192p_028UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98975680261C675400126288 /* Ashan_Dias_cobsccomp192p_028UITests.swift */; };
+		BCE0C582CC0635819A1127C6 /* Pods_Ashan_Dias_cobsccomp192p_028.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3746F6C9F78BCC731D5C9DD7 /* Pods_Ashan_Dias_cobsccomp192p_028.framework */; };
+		ECAA8B64715F3EB015ECCC94 /* Pods_Ashan_Dias_cobsccomp192p_028Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B35F549CC2D7FE820C4BCCE2 /* Pods_Ashan_Dias_cobsccomp192p_028Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		182C6E5BE8C79A168ED5F7D8 /* Pods-Ashan_Dias_cobsccomp192p_028Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ashan_Dias_cobsccomp192p_028Tests.release.xcconfig"; path = "Target Support Files/Pods-Ashan_Dias_cobsccomp192p_028Tests/Pods-Ashan_Dias_cobsccomp192p_028Tests.release.xcconfig"; sourceTree = "<group>"; };
+		3746F6C9F78BCC731D5C9DD7 /* Pods_Ashan_Dias_cobsccomp192p_028.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ashan_Dias_cobsccomp192p_028.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9897565B261C675300126288 /* Ashan_Dias_cobsccomp192p_028.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ashan_Dias_cobsccomp192p_028.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9897565E261C675300126288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98975660261C675300126288 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +54,13 @@
 		9897567C261C675400126288 /* Ashan_Dias_cobsccomp192p_028UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Ashan_Dias_cobsccomp192p_028UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98975680261C675400126288 /* Ashan_Dias_cobsccomp192p_028UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ashan_Dias_cobsccomp192p_028UITests.swift; sourceTree = "<group>"; };
 		98975682261C675400126288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A73629927D8838DA29A85AFE /* Pods-Ashan_Dias_cobsccomp192p_028.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ashan_Dias_cobsccomp192p_028.release.xcconfig"; path = "Target Support Files/Pods-Ashan_Dias_cobsccomp192p_028/Pods-Ashan_Dias_cobsccomp192p_028.release.xcconfig"; sourceTree = "<group>"; };
+		B35F549CC2D7FE820C4BCCE2 /* Pods_Ashan_Dias_cobsccomp192p_028Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ashan_Dias_cobsccomp192p_028Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B377792B4B715482DED1710E /* Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests.debug.xcconfig"; path = "Target Support Files/Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests/Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B4F998E7D1886EE079288410 /* Pods-Ashan_Dias_cobsccomp192p_028.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ashan_Dias_cobsccomp192p_028.debug.xcconfig"; path = "Target Support Files/Pods-Ashan_Dias_cobsccomp192p_028/Pods-Ashan_Dias_cobsccomp192p_028.debug.xcconfig"; sourceTree = "<group>"; };
+		D0C48AE02889A2ABAD32EACB /* Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests.release.xcconfig"; path = "Target Support Files/Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests/Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests.release.xcconfig"; sourceTree = "<group>"; };
+		F350A6B012220971593E0D70 /* Pods-Ashan_Dias_cobsccomp192p_028Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ashan_Dias_cobsccomp192p_028Tests.debug.xcconfig"; path = "Target Support Files/Pods-Ashan_Dias_cobsccomp192p_028Tests/Pods-Ashan_Dias_cobsccomp192p_028Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		FCC168F62951DE55B36B9E4E /* Pods_Ashan_Dias_cobsccomp192p_028_Ashan_Dias_cobsccomp192p_028UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ashan_Dias_cobsccomp192p_028_Ashan_Dias_cobsccomp192p_028UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCE0C582CC0635819A1127C6 /* Pods_Ashan_Dias_cobsccomp192p_028.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECAA8B64715F3EB015ECCC94 /* Pods_Ashan_Dias_cobsccomp192p_028Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				319ABF0C821D3727C6D86358 /* Pods_Ashan_Dias_cobsccomp192p_028_Ashan_Dias_cobsccomp192p_028UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +98,8 @@
 				98975674261C675400126288 /* Ashan_Dias_cobsccomp192p_028Tests */,
 				9897567F261C675400126288 /* Ashan_Dias_cobsccomp192p_028UITests */,
 				9897565C261C675300126288 /* Products */,
+				FC45F56ECC0BF07388A3FD7E /* Pods */,
+				B8BD9C94DAD8BB4D2912D006 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +145,30 @@
 			path = Ashan_Dias_cobsccomp192p_028UITests;
 			sourceTree = "<group>";
 		};
+		B8BD9C94DAD8BB4D2912D006 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3746F6C9F78BCC731D5C9DD7 /* Pods_Ashan_Dias_cobsccomp192p_028.framework */,
+				FCC168F62951DE55B36B9E4E /* Pods_Ashan_Dias_cobsccomp192p_028_Ashan_Dias_cobsccomp192p_028UITests.framework */,
+				B35F549CC2D7FE820C4BCCE2 /* Pods_Ashan_Dias_cobsccomp192p_028Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC45F56ECC0BF07388A3FD7E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B4F998E7D1886EE079288410 /* Pods-Ashan_Dias_cobsccomp192p_028.debug.xcconfig */,
+				A73629927D8838DA29A85AFE /* Pods-Ashan_Dias_cobsccomp192p_028.release.xcconfig */,
+				B377792B4B715482DED1710E /* Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests.debug.xcconfig */,
+				D0C48AE02889A2ABAD32EACB /* Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests.release.xcconfig */,
+				F350A6B012220971593E0D70 /* Pods-Ashan_Dias_cobsccomp192p_028Tests.debug.xcconfig */,
+				182C6E5BE8C79A168ED5F7D8 /* Pods-Ashan_Dias_cobsccomp192p_028Tests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 98975685261C675400126288 /* Build configuration list for PBXNativeTarget "Ashan_Dias_cobsccomp192p_028" */;
 			buildPhases = (
+				3E4A4287C89AC3882FAB88DD /* [CP] Check Pods Manifest.lock */,
 				98975657261C675300126288 /* Sources */,
 				98975658261C675300126288 /* Frameworks */,
 				98975659261C675300126288 /* Resources */,
+				CF0AD37B87D2EFE6CDA9E611 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +195,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 98975688261C675400126288 /* Build configuration list for PBXNativeTarget "Ashan_Dias_cobsccomp192p_028Tests" */;
 			buildPhases = (
+				4CE36D21787632084D69C581 /* [CP] Check Pods Manifest.lock */,
 				9897566D261C675400126288 /* Sources */,
 				9897566E261C675400126288 /* Frameworks */,
 				9897566F261C675400126288 /* Resources */,
@@ -170,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9897568B261C675400126288 /* Build configuration list for PBXNativeTarget "Ashan_Dias_cobsccomp192p_028UITests" */;
 			buildPhases = (
+				D3EB9428BF17F0A92EDF119B /* [CP] Check Pods Manifest.lock */,
 				98975678261C675400126288 /* Sources */,
 				98975679261C675400126288 /* Frameworks */,
 				9897567A261C675400126288 /* Resources */,
+				9F15C12E256CEF2BCD1BF982 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,6 +298,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3E4A4287C89AC3882FAB88DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ashan_Dias_cobsccomp192p_028-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CE36D21787632084D69C581 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ashan_Dias_cobsccomp192p_028Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F15C12E256CEF2BCD1BF982 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests/Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests/Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests/Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF0AD37B87D2EFE6CDA9E611 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ashan_Dias_cobsccomp192p_028/Pods-Ashan_Dias_cobsccomp192p_028-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ashan_Dias_cobsccomp192p_028/Pods-Ashan_Dias_cobsccomp192p_028-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ashan_Dias_cobsccomp192p_028/Pods-Ashan_Dias_cobsccomp192p_028-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3EB9428BF17F0A92EDF119B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		98975657261C675300126288 /* Sources */ = {
@@ -433,6 +582,7 @@
 		};
 		98975686261C675400126288 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4F998E7D1886EE079288410 /* Pods-Ashan_Dias_cobsccomp192p_028.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -451,6 +601,7 @@
 		};
 		98975687261C675400126288 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A73629927D8838DA29A85AFE /* Pods-Ashan_Dias_cobsccomp192p_028.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -469,6 +620,7 @@
 		};
 		98975689261C675400126288 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F350A6B012220971593E0D70 /* Pods-Ashan_Dias_cobsccomp192p_028Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +642,7 @@
 		};
 		9897568A261C675400126288 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 182C6E5BE8C79A168ED5F7D8 /* Pods-Ashan_Dias_cobsccomp192p_028Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -511,6 +664,7 @@
 		};
 		9897568C261C675400126288 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B377792B4B715482DED1710E /* Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -530,6 +684,7 @@
 		};
 		9897568D261C675400126288 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0C48AE02889A2ABAD32EACB /* Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
