@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		9897566B261C675400126288 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98975669261C675400126288 /* LaunchScreen.storyboard */; };
 		98975676261C675400126288 /* Ashan_Dias_cobsccomp192p_028Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98975675261C675400126288 /* Ashan_Dias_cobsccomp192p_028Tests.swift */; };
 		98975681261C675400126288 /* Ashan_Dias_cobsccomp192p_028UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98975680261C675400126288 /* Ashan_Dias_cobsccomp192p_028UITests.swift */; };
+		989756A7261C775800126288 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 989756A6261C775800126288 /* logo.png */; };
 		BCE0C582CC0635819A1127C6 /* Pods_Ashan_Dias_cobsccomp192p_028.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3746F6C9F78BCC731D5C9DD7 /* Pods_Ashan_Dias_cobsccomp192p_028.framework */; };
 		ECAA8B64715F3EB015ECCC94 /* Pods_Ashan_Dias_cobsccomp192p_028Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B35F549CC2D7FE820C4BCCE2 /* Pods_Ashan_Dias_cobsccomp192p_028Tests.framework */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		9897567C261C675400126288 /* Ashan_Dias_cobsccomp192p_028UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Ashan_Dias_cobsccomp192p_028UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98975680261C675400126288 /* Ashan_Dias_cobsccomp192p_028UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ashan_Dias_cobsccomp192p_028UITests.swift; sourceTree = "<group>"; };
 		98975682261C675400126288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		989756A6261C775800126288 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		A73629927D8838DA29A85AFE /* Pods-Ashan_Dias_cobsccomp192p_028.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ashan_Dias_cobsccomp192p_028.release.xcconfig"; path = "Target Support Files/Pods-Ashan_Dias_cobsccomp192p_028/Pods-Ashan_Dias_cobsccomp192p_028.release.xcconfig"; sourceTree = "<group>"; };
 		B35F549CC2D7FE820C4BCCE2 /* Pods_Ashan_Dias_cobsccomp192p_028Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ashan_Dias_cobsccomp192p_028Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B377792B4B715482DED1710E /* Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests.debug.xcconfig"; path = "Target Support Files/Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests/Pods-Ashan_Dias_cobsccomp192p_028-Ashan_Dias_cobsccomp192p_028UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		98975652261C675300126288 = {
 			isa = PBXGroup;
 			children = (
+				989756A5261C76C900126288 /* images */,
 				9897565D261C675300126288 /* Ashan_Dias_cobsccomp192p_028 */,
 				98975674261C675400126288 /* Ashan_Dias_cobsccomp192p_028Tests */,
 				9897567F261C675400126288 /* Ashan_Dias_cobsccomp192p_028UITests */,
@@ -145,6 +148,14 @@
 			path = Ashan_Dias_cobsccomp192p_028UITests;
 			sourceTree = "<group>";
 		};
+		989756A5261C76C900126288 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				989756A6261C775800126288 /* logo.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		B8BD9C94DAD8BB4D2912D006 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +176,6 @@
 				F350A6B012220971593E0D70 /* Pods-Ashan_Dias_cobsccomp192p_028Tests.debug.xcconfig */,
 				182C6E5BE8C79A168ED5F7D8 /* Pods-Ashan_Dias_cobsccomp192p_028Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -277,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				989756A7261C775800126288 /* logo.png in Resources */,
 				9897566B261C675400126288 /* LaunchScreen.storyboard in Resources */,
 				98975668261C675400126288 /* Assets.xcassets in Resources */,
 				98975666261C675300126288 /* Main.storyboard in Resources */,
