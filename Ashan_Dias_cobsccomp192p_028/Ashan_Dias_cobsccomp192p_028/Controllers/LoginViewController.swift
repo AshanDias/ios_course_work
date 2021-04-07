@@ -10,7 +10,6 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var button:UIButton!
-    @IBOutlet weak var register:UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         setBtn()
@@ -18,6 +17,10 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func Login(_ sender: Any) {
+    }
+    
+    @IBAction func Register(_ sender: Any) {
+        performSegue(withIdentifier: "Register", sender: nil)
     }
     
     
