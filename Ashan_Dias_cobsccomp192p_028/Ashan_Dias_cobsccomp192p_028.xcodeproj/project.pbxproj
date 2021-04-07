@@ -10,7 +10,7 @@
 		319ABF0C821D3727C6D86358 /* Pods_Ashan_Dias_cobsccomp192p_028_Ashan_Dias_cobsccomp192p_028UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC168F62951DE55B36B9E4E /* Pods_Ashan_Dias_cobsccomp192p_028_Ashan_Dias_cobsccomp192p_028UITests.framework */; };
 		9897565F261C675300126288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897565E261C675300126288 /* AppDelegate.swift */; };
 		98975661261C675300126288 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98975660261C675300126288 /* SceneDelegate.swift */; };
-		98975663261C675300126288 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98975662261C675300126288 /* ViewController.swift */; };
+		98975663261C675300126288 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98975662261C675300126288 /* LoginViewController.swift */; };
 		98975666261C675300126288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98975664261C675300126288 /* Main.storyboard */; };
 		98975668261C675400126288 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98975667261C675400126288 /* Assets.xcassets */; };
 		9897566B261C675400126288 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98975669261C675400126288 /* LaunchScreen.storyboard */; };
@@ -44,7 +44,7 @@
 		9897565B261C675300126288 /* Ashan_Dias_cobsccomp192p_028.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ashan_Dias_cobsccomp192p_028.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9897565E261C675300126288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98975660261C675300126288 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		98975662261C675300126288 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		98975662261C675300126288 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		98975665261C675300126288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98975667261C675400126288 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9897566A261C675400126288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,6 +96,7 @@
 		98975652261C675300126288 = {
 			isa = PBXGroup;
 			children = (
+				989756AE261D8DBE00126288 /* UIHelpers */,
 				989756A5261C76C900126288 /* images */,
 				9897565D261C675300126288 /* Ashan_Dias_cobsccomp192p_028 */,
 				98975674261C675400126288 /* Ashan_Dias_cobsccomp192p_028Tests */,
@@ -121,7 +122,7 @@
 			children = (
 				9897565E261C675300126288 /* AppDelegate.swift */,
 				98975660261C675300126288 /* SceneDelegate.swift */,
-				98975662261C675300126288 /* ViewController.swift */,
+				98975662261C675300126288 /* LoginViewController.swift */,
 				98975664261C675300126288 /* Main.storyboard */,
 				98975667261C675400126288 /* Assets.xcassets */,
 				98975669261C675400126288 /* LaunchScreen.storyboard */,
@@ -154,6 +155,13 @@
 				989756A6261C775800126288 /* logo.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		989756AE261D8DBE00126288 /* UIHelpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIHelpers;
 			sourceTree = "<group>";
 		};
 		B8BD9C94DAD8BB4D2912D006 /* Frameworks */ = {
@@ -418,7 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98975663261C675300126288 /* ViewController.swift in Sources */,
+				98975663261C675300126288 /* LoginViewController.swift in Sources */,
 				9897565F261C675300126288 /* AppDelegate.swift in Sources */,
 				98975661261C675300126288 /* SceneDelegate.swift in Sources */,
 			);
