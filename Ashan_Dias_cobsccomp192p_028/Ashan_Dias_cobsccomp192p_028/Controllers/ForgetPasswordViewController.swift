@@ -1,5 +1,5 @@
 //
-//  RegisterViewController.swift
+//  ForgetPasswordViewController.swift
 //  Ashan_Dias_cobsccomp192p_028
 //
 //  Created by Ashan Dias on 2021-04-07.
@@ -7,8 +7,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
-
+class ForgetPasswordViewController: UIViewController {
     @IBOutlet weak var button:UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,15 +21,11 @@ class RegisterViewController: UIViewController {
         button.layer.borderWidth = 1
         
     }
-
     
-    @IBAction func Login(_ sender: Any) {
-        performSegue(withIdentifier: "login", sender: nil)
+    @IBAction func Proceed(_ sender: Any) {
+        performSegue(withIdentifier: "preceedFPWD", sender: nil)
     }
     
-    @IBAction func ForgotPassword(_ sender: Any) {
-        performSegue(withIdentifier: "forgotpwdFromRegister", sender: nil)
-    }
     /*
     // MARK: - Navigation
 

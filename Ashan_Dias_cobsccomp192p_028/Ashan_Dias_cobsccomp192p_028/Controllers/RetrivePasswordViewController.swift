@@ -1,5 +1,5 @@
 //
-//  RegisterViewController.swift
+//  RetrivePasswordViewController.swift
 //  Ashan_Dias_cobsccomp192p_028
 //
 //  Created by Ashan Dias on 2021-04-07.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class RetrivePasswordViewController: UIViewController {
 
     @IBOutlet weak var button:UIButton!
     override func viewDidLoad() {
@@ -16,21 +16,17 @@ class RegisterViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+
     func setBtn(){
        
         button.layer.cornerRadius = 25
         button.layer.borderWidth = 1
         
     }
-
-    
-    @IBAction func Login(_ sender: Any) {
-        performSegue(withIdentifier: "login", sender: nil)
+    @IBAction func Cancel(_ sender: Any) {
+        performSegue(withIdentifier: "cancelFPWD", sender: nil)
     }
     
-    @IBAction func ForgotPassword(_ sender: Any) {
-        performSegue(withIdentifier: "forgotpwdFromRegister", sender: nil)
-    }
     /*
     // MARK: - Navigation
 

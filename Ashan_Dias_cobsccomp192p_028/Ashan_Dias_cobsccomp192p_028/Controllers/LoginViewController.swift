@@ -24,6 +24,11 @@ class LoginViewController: UIViewController {
     }
     
     
+    @IBAction func ForgetPassword(_ sender: Any) {
+        performSegue(withIdentifier: "forgotpwdFromLogin", sender: nil)
+    }
+    
+    
     func setBtn(){
        
         button.layer.cornerRadius = 25
