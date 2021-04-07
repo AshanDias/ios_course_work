@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lOu-Vv-5dy">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -360,13 +360,67 @@
             </objects>
             <point key="canvasLocation" x="-20" y="-832.53373313343332"/>
         </scene>
+        <!--Location View Controller-->
+        <scene sceneID="Nau-md-agV">
+            <objects>
+                <viewController id="lOu-Vv-5dy" customClass="LocationViewController" customModule="Ashan_Dias_cobsccomp192p_028" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0bk-2D-Wd1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin2x-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="NzP-Hc-hQK">
+                                <rect key="frame" x="67" y="30" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="FIQ-yR-YPa"/>
+                                    <constraint firstAttribute="height" constant="128" id="bOa-Jn-vS0"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFH-Sq-GDk">
+                                <rect key="frame" x="67" y="239" width="240" height="49.5"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="LQc-Md-YeW"/>
+                                </constraints>
+                                <state key="normal" title="Allow Location">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="layer-211.png" translatesAutoresizingMaskIntoConstraints="NO" id="yaI-D8-47V">
+                                <rect key="frame" x="20" y="372.5" width="335" height="204.5"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8hJ-Wh-7an"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yaI-D8-47V" firstAttribute="top" secondItem="zFH-Sq-GDk" secondAttribute="bottom" constant="84" id="AfT-Qh-abf"/>
+                            <constraint firstItem="8hJ-Wh-7an" firstAttribute="bottom" secondItem="yaI-D8-47V" secondAttribute="bottom" constant="90" id="Edq-30-AUo"/>
+                            <constraint firstItem="NzP-Hc-hQK" firstAttribute="leading" secondItem="8hJ-Wh-7an" secondAttribute="leading" constant="67" id="Hks-5g-eq0"/>
+                            <constraint firstItem="zFH-Sq-GDk" firstAttribute="top" secondItem="NzP-Hc-hQK" secondAttribute="bottom" constant="81" id="JcI-sK-HMd"/>
+                            <constraint firstItem="yaI-D8-47V" firstAttribute="leading" secondItem="8hJ-Wh-7an" secondAttribute="leading" constant="20" id="OEL-cY-CpF"/>
+                            <constraint firstItem="zFH-Sq-GDk" firstAttribute="leading" secondItem="8hJ-Wh-7an" secondAttribute="leading" constant="67" id="OaG-C4-YKr"/>
+                            <constraint firstItem="8hJ-Wh-7an" firstAttribute="trailing" secondItem="zFH-Sq-GDk" secondAttribute="trailing" constant="68" id="QaL-Gr-4Av"/>
+                            <constraint firstItem="8hJ-Wh-7an" firstAttribute="trailing" secondItem="zFH-Sq-GDk" secondAttribute="trailing" constant="68" id="R3g-o3-DXg"/>
+                            <constraint firstItem="8hJ-Wh-7an" firstAttribute="trailing" secondItem="yaI-D8-47V" secondAttribute="trailing" constant="20" id="SSb-I9-QbW"/>
+                            <constraint firstItem="NzP-Hc-hQK" firstAttribute="top" secondItem="8hJ-Wh-7an" secondAttribute="top" constant="30" id="XhL-hB-Cu1"/>
+                            <constraint firstItem="yaI-D8-47V" firstAttribute="centerX" secondItem="0bk-2D-Wd1" secondAttribute="centerX" id="qZL-y0-6WE"/>
+                            <constraint firstItem="8hJ-Wh-7an" firstAttribute="trailing" secondItem="NzP-Hc-hQK" secondAttribute="trailing" constant="68" id="uCO-rf-7I0"/>
+                            <constraint firstItem="zFH-Sq-GDk" firstAttribute="leading" secondItem="8hJ-Wh-7an" secondAttribute="leading" constant="67" id="yns-G4-O5z"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="phR-jL-8dV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1300" y="-821.73913043478262"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Hdc-j0-bmb"/>
         <segue reference="TnY-pO-n3y"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="layer-211.png" width="492" height="204.5"/>
         <image name="logo.png" width="96" height="96"/>
+        <image name="pin2x-1.png" width="188" height="176"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
