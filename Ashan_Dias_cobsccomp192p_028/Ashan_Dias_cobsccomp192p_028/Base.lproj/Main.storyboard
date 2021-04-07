@@ -101,7 +101,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="LRs-eC-WmP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-937" y="-49"/>
+            <point key="canvasLocation" x="-2350" y="116"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="YSY-SV-1O8">
@@ -200,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVE-pl-w50" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="-88"/>
+            <point key="canvasLocation" x="-1954" y="-788"/>
         </scene>
         <!--Forget Password View Controller-->
         <scene sceneID="CBi-sc-jex">
@@ -414,8 +414,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Hdc-j0-bmb"/>
-        <segue reference="TnY-pO-n3y"/>
+        <segue reference="M28-K1-Rk2"/>
+        <segue reference="6on-1h-8mq"/>
+        <segue reference="bMx-S7-JBk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="layer-211.png" width="492" height="204.5"/>
