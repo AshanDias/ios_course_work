@@ -15,7 +15,13 @@ class PreviewViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-  
+    @IBAction func clickCategory(_ sender: Any) {
+        performSegue(withIdentifier: "categoryView", sender: nil)
+    }
+    
+    @IBAction func clickMenu(_ sender: Any) {
+        performSegue(withIdentifier: "menu_nav", sender: nil)
+    }
     /*
     // MARK: - Navigation
 
