@@ -19,7 +19,7 @@ class RegisterViewController: UIViewController {
     func setBtn(){
        
         button.layer.cornerRadius = 25
-        button.layer.borderWidth = 1
+        button.layer.borderWidth = 0
         
     }
 

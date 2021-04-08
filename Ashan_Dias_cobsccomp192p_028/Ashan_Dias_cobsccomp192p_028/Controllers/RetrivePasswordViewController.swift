@@ -20,7 +20,7 @@ class RetrivePasswordViewController: UIViewController {
     func setBtn(){
        
         button.layer.cornerRadius = 25
-        button.layer.borderWidth = 1
+        button.layer.borderWidth = 0
         
     }
     @IBAction func Cancel(_ sender: Any) {
