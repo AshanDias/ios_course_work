@@ -24,7 +24,7 @@ struct MenuItem{
             dict.setValue(img, forKey: "img")
             dict.setValue(category, forKey: "category")
             dict.setValue(discount, forKey: "discount")
-            dict.setValue(sellType, forKey: "sellTypes")
+            dict.setValue(sellType, forKey: "sellType")
            return dict
        }
 }

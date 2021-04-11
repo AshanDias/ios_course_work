@@ -48,6 +48,10 @@ class CategoryViewController: UIViewController {
         
     }
     
+    @IBAction func btnBack(_ sender:Any){
+        performSegue(withIdentifier: "backFromCat", sender: nil)
+    }
+    
     func loadData(){
         let group = DispatchGroup()
         self.database.child("Category").getData { (error, snapshot) in

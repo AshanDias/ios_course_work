@@ -31,6 +31,10 @@ class PreviewTableViewCell: UITableViewCell {
     func setupView(itm :MenuItem){
         name.text=itm.name
         desc.text=itm.desc
+        price.text=String(itm.price)
+        discount.text=String(itm.discount)
+        sellType.setOn(itm.sellType, animated: false)
+        img.image=itm.image
     }
     
 }

@@ -81,6 +81,9 @@ let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selecto
         self.database.child("MenuItems").child(String(child)).setValue(menu.getJSON())
     }
     
+    @IBAction func backBtn(_ sender:Any){
+        performSegue(withIdentifier: "backFromitem", sender: nil)
+    }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
         let imagePickerController = UIImagePickerController()
