@@ -100,13 +100,14 @@ let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selecto
      
         var selectedimage = info[.originalImage] as! UIImage //retrieve the image
 
-    
+        let metaData = StorageMetadata()
+                metaData.contentType = "image/jpg"
         //we should resize the image or takes very lont time for image upload
         selectedimage = resizeImage(image: selectedimage, targetSize: CGSize(width: image.frame.width, height: image.frame.height))
         let id=UUID().uuidString
-        storage.reference(withPath: id)
+        storage.reference(withPath:  "/\(id).jpg")
             //saving the profile image by user image id as png file
-            .putData(selectedimage.pngData()!, metadata: nil) {metaData,error in
+            .putData(selectedimage.pngData()!, metadata: metaData) {metaData,error in
                 if error == nil{
                     
                     self.image.image = selectedimage
@@ -117,7 +118,11 @@ let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selecto
                   
                 }
                 self.button.isEnabled=true
+                
             }
+       
+        
+        
     }
     
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {

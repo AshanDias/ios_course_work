@@ -7,10 +7,13 @@
 
 import UIKit
 import Firebase
-class PreviewViewController: UIViewController {
+class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
+    
+ 
+    
     
     private let database = Database.database().reference()
-    
+    let imageStore = Storage.storage()
     var menuItem: [MenuItem] = [
       
    ]
@@ -26,6 +29,32 @@ class PreviewViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func provideImage(index:Int,newImage:UIImage?) {
+        if(newImage == nil){
+            return
+        }
+        if(index > menuItem.count){
+            return // very rare index out bound exception can occur sometimes
+        }
+        menuItem[index].image = newImage
+
+        let indexPath = IndexPath(item: index, section: 0)
+        tbl_menu.reloadRows(at: [indexPath], with: .top)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return menuItem.count
+        }
+    
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+            let cell=tableView.dequeueReusableCell(withIdentifier: "PreviewTableViewCell", for: indexPath) as! PreviewTableViewCell
+    
+            cell.setupView(itm: menuItem[indexPath.row])
+    
+            return cell
+        }
+        
     @IBAction func clickCategory(_ sender: Any) {
         performSegue(withIdentifier: "categoryView", sender: nil)
     }
@@ -33,9 +62,10 @@ class PreviewViewController: UIViewController {
     @IBAction func clickMenu(_ sender: Any) {
         performSegue(withIdentifier: "menu_nav", sender: nil)
     }
+    
     func loadData(){
         let group = DispatchGroup()
-        self.database.child("MenuItems").getData { (error, snapshot) in
+        self.database.child("MenuItems").getData { [self] (error, snapshot) in
             if snapshot.exists() {
                
                let dataChange = snapshot.value as! [String:AnyObject]
@@ -46,19 +76,34 @@ class PreviewViewController: UIViewController {
               
                dataChange.forEach({ (key,val) in
                 
-                let items = MenuItem(name: val["name"] as! String, desc: val["desc"] as! String, price: val["price"] as! Double, img: val["img"] as! String, category: val["category"] as! String, discount: val["discount"] as! Int, sellType: val["sellType"] as! Bool)
-//
-//
-                   self.menuItem.append(items)
+                var items = MenuItem(name: val["name"] as! String, desc: val["desc"] as! String, price: val["price"] as! Double, img: val["img"] as! String, category: val["category"] as! String, discount: val["discount"] as! Int, sellType: val["sellType"] as! Bool)
+
+                menuItem.append(items)
                  
                })
-               
-             
-               
                group.notify(queue: .main) {
-                       // do something here when loop finished
-//                   self.catItems.sorted() { $0.name > $1.name }
-//                   self.tbl_category.reloadData()
+               
+                for (index,item) in menuItem.enumerated() {
+                    self.imageStore.reference(withPath: "/\(item.img).jpg").getData(maxSize: 1 * 1024 * 1024, completion: {data,imageErr in
+
+                        if(imageErr != nil){
+
+                            switch StorageErrorCode(rawValue: imageErr!._code) {
+                            case .objectNotFound: break
+                                //if the image is not available in the database then display a default image
+                               // self.menuItem.i(index: index, newImage: #imageLiteral(resourceName: "foodDefault"))
+                            default:break
+                            }
+                        }else{
+                            //if no error then update the revant cell against the index to with newly fetched food picture
+                          
+                          provideImage(index: index, newImage:  UIImage(data: data!))
+                           
+                        }
+                    })
+                }
+            
+                    
                 self.tbl_menu.reloadData()
                }
               // print("Got data",snapshot.value!)
@@ -81,22 +126,4 @@ class PreviewViewController: UIViewController {
     }
     */
 
-}
-
-extension PreviewViewController:UITableViewDelegate,UITableViewDataSource{
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuItem.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell=tableView.dequeueReusableCell(withIdentifier: "PreviewTableViewCell", for: indexPath) as! PreviewTableViewCell
-     
-        cell.setupView(itm: menuItem[indexPath.row])
-      
-        return cell
-    }
-    
-    
 }
