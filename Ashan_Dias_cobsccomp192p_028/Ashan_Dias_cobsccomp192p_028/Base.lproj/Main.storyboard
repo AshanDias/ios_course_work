@@ -413,6 +413,7 @@
                         <outlet property="desc" destination="QCK-dE-7b1" id="N1B-Aj-Eug"/>
                         <outlet property="discount" destination="VKf-1w-vrI" id="URi-Yh-0iI"/>
                         <outlet property="dropDown" destination="6xc-ir-E9c" id="8L5-C9-t5D"/>
+                        <outlet property="image" destination="6tS-9d-EYU" id="DIE-Wi-Eig"/>
                         <outlet property="name" destination="nTd-OW-iRi" id="MF4-Nx-48S"/>
                         <outlet property="price" destination="nVL-ba-7UY" id="fSk-Z6-yXt"/>
                         <outlet property="sellType" destination="sou-uW-Jvk" id="utl-g2-hKQ"/>
