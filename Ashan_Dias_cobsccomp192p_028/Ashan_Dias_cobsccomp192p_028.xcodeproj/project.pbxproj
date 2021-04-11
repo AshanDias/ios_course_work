@@ -23,6 +23,7 @@
 		989756CE261DA03800126288 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989756CD261DA03800126288 /* LocationViewController.swift */; };
 		989756D3261DA0C500126288 /* layer-211@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 989756D2261DA0C500126288 /* layer-211@2x.png */; };
 		989756D8261DA0D800126288 /* pin2x-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 989756D7261DA0D800126288 /* pin2x-1.png */; };
+		98EEA54926232D05001048A7 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEA54826232D05001048A7 /* MenuItem.swift */; };
 		98F6D240261EF9EC00AEA8BA /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6D23F261EF9EC00AEA8BA /* PreviewViewController.swift */; };
 		98F6D245261EFA0A00AEA8BA /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6D244261EFA0A00AEA8BA /* CategoryViewController.swift */; };
 		98F6D24A261EFA2B00AEA8BA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6D249261EFA2B00AEA8BA /* MenuViewController.swift */; };
@@ -76,6 +77,7 @@
 		989756CD261DA03800126288 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		989756D2261DA0C500126288 /* layer-211@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "layer-211@2x.png"; sourceTree = "<group>"; };
 		989756D7261DA0D800126288 /* pin2x-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin2x-1.png"; sourceTree = "<group>"; };
+		98EEA54826232D05001048A7 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		98F6D23F261EF9EC00AEA8BA /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		98F6D244261EFA0A00AEA8BA /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		98F6D249261EFA2B00AEA8BA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				98FB9AF92622F93000907107 /* Category.swift */,
+				98EEA54826232D05001048A7 /* MenuItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				9897565F261C675300126288 /* AppDelegate.swift in Sources */,
 				989756C4261D98F700126288 /* ForgetPasswordViewController.swift in Sources */,
 				98975661261C675300126288 /* SceneDelegate.swift in Sources */,
+				98EEA54926232D05001048A7 /* MenuItem.swift in Sources */,
 				98FB9AF02622E3B300907107 /* CategoryTableViewCell.swift in Sources */,
 				989756BF261D938500126288 /* RegisterViewController.swift in Sources */,
 				989756C9261D99B700126288 /* RetrivePasswordViewController.swift in Sources */,

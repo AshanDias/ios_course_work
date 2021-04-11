@@ -230,7 +230,6 @@
         <!--Category View Controller-->
         <scene sceneID="Xwc-fy-iSj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uHy-c8-cde" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="ugy-MH-8b5" customClass="CategoryViewController" customModule="Ashan_Dias_cobsccomp192p_028" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AKZ-DB-9Fh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -293,6 +292,7 @@
                         <outlet property="txt_name" destination="boD-bq-Tj3" id="GTG-me-aBH"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uHy-c8-cde" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3430" y="2430"/>
         </scene>
@@ -304,7 +304,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQ3-Ny-P4e">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQ3-Ny-P4e">
                                 <rect key="frame" x="111" y="84" width="153" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -325,10 +325,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Category " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6xc-ir-E9c">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Category " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6xc-ir-E9c" customClass="DropDown" customModule="iOSDropDown">
                                 <rect key="frame" x="77" y="426" width="220" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rowHeight">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="arrowSize">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Discount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VKf-1w-vrI">
                                 <rect key="frame" x="115" y="478" width="145" height="34"/>
@@ -354,6 +362,9 @@
                                 <state key="normal" title="ADD +">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnAdd:" destination="nXX-up-hTh" eventType="touchUpInside" id="Lxl-1G-Z4c"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_Image.png" translatesAutoresizingMaskIntoConstraints="NO" id="6tS-9d-EYU">
                                 <rect key="frame" x="129" y="317" width="117" height="90"/>
@@ -399,6 +410,12 @@
                     <navigationItem key="navigationItem" id="EKh-7u-UTO"/>
                     <connections>
                         <outlet property="button" destination="Xsu-e3-KtY" id="xnr-Z4-0xx"/>
+                        <outlet property="desc" destination="QCK-dE-7b1" id="N1B-Aj-Eug"/>
+                        <outlet property="discount" destination="VKf-1w-vrI" id="URi-Yh-0iI"/>
+                        <outlet property="dropDown" destination="6xc-ir-E9c" id="8L5-C9-t5D"/>
+                        <outlet property="name" destination="nTd-OW-iRi" id="MF4-Nx-48S"/>
+                        <outlet property="price" destination="nVL-ba-7UY" id="fSk-Z6-yXt"/>
+                        <outlet property="sellType" destination="sou-uW-Jvk" id="utl-g2-hKQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mD-3i-Mi2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

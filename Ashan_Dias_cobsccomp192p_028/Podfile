@@ -8,6 +8,7 @@ target 'Ashan_Dias_cobsccomp192p_028' do
   # Pods for Ashan_Dias_cobsccomp192p_028
  pod 'Firebase/Auth'
  pod 'Firebase/Database'
+ pod 'iOSDropDown'
 
   target 'Ashan_Dias_cobsccomp192p_028Tests' do
     inherit! :search_paths

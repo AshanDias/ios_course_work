@@ -42,6 +42,7 @@ PODS:
   - GoogleUtilities/Reachability (7.2.2):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.5.0)
+  - iOSDropDown (0.3.4)
   - leveldb-library (1.22)
   - nanopb (2.30907.0):
     - nanopb/decode (= 2.30907.0)
@@ -53,6 +54,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Database
+  - iOSDropDown
 
 SPEC REPOS:
   trunk:
@@ -64,6 +66,7 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleUtilities
     - GTMSessionFetcher
+    - iOSDropDown
     - leveldb-library
     - nanopb
     - PromisesObjC
@@ -77,10 +80,11 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 1024b1a4dfbd7a0e92cb20d7e0a6f1fb66b449a4
   GoogleUtilities: 31c5b01f978a70c6cff2afc6272b3f1921614b43
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: 06d5f1f1fec5dbe900d5b4d07adeaaa1ecc2122e
+PODFILE CHECKSUM: 51d5079b40d5d0e46bbba0645ef3d1b95d17161f
 
 COCOAPODS: 1.10.1
