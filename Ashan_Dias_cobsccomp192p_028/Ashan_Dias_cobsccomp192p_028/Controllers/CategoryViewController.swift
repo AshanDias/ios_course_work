@@ -60,8 +60,8 @@ class CategoryViewController: UIViewController {
                 group.wait()
                
                 dataChange.forEach({ (key,val) in
-                   
-                    let cart = Category(name: val as! String)
+                  
+                    let cart = Category(name: val as! String,id: key as! String)
                     
                 
                     self.catItems.append(cart)
@@ -95,6 +95,19 @@ extension CategoryViewController:UITableViewDelegate,UITableViewDataSource{
         cell.setupView(cat: catItems[indexPath.row])
     
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+      
+        if editingStyle == .delete {
+           
+            let id=catItems[indexPath.row].id!
+            self.database.child("Category").child(id).removeValue()
+            catItems.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .bottom)
+           }
+        
+        
     }
     
     

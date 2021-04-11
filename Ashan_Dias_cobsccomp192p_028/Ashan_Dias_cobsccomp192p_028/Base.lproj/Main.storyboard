@@ -264,7 +264,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tdz-39-ITa">
-                                <rect key="frame" x="40" y="370" width="295" height="240"/>
+                                <rect key="frame" x="10" y="370" width="355" height="240"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -276,14 +276,14 @@
                             <constraint firstItem="mmb-kX-TxO" firstAttribute="trailing" secondItem="boD-bq-Tj3" secondAttribute="trailing" constant="40" id="Gxp-PQ-3lc"/>
                             <constraint firstItem="xs7-SR-H49" firstAttribute="leading" secondItem="mmb-kX-TxO" secondAttribute="leading" constant="132" id="Lma-JR-Xq6"/>
                             <constraint firstItem="mmb-kX-TxO" firstAttribute="trailing" secondItem="8ak-qb-NVv" secondAttribute="trailing" constant="111" id="PLX-ON-q6t"/>
-                            <constraint firstItem="tdz-39-ITa" firstAttribute="leading" secondItem="mmb-kX-TxO" secondAttribute="leading" constant="40" id="Q7j-5N-sMw"/>
+                            <constraint firstItem="tdz-39-ITa" firstAttribute="leading" secondItem="mmb-kX-TxO" secondAttribute="leading" constant="10" id="Q7j-5N-sMw"/>
                             <constraint firstItem="boD-bq-Tj3" firstAttribute="leading" secondItem="mmb-kX-TxO" secondAttribute="leading" constant="39" id="Sib-aK-ypC"/>
                             <constraint firstItem="8ak-qb-NVv" firstAttribute="leading" secondItem="mmb-kX-TxO" secondAttribute="leading" constant="111" id="TsA-cx-oK0"/>
                             <constraint firstItem="8ak-qb-NVv" firstAttribute="top" secondItem="mmb-kX-TxO" secondAttribute="top" constant="39" id="Ugr-09-Gvm"/>
                             <constraint firstItem="xs7-SR-H49" firstAttribute="centerX" secondItem="boD-bq-Tj3" secondAttribute="centerX" id="WkW-lm-8Wd"/>
                             <constraint firstItem="tdz-39-ITa" firstAttribute="top" secondItem="xs7-SR-H49" secondAttribute="bottom" constant="63" id="e4D-Td-1oB"/>
                             <constraint firstItem="mmb-kX-TxO" firstAttribute="bottom" secondItem="tdz-39-ITa" secondAttribute="bottom" constant="8" id="sx2-QX-w78"/>
-                            <constraint firstItem="mmb-kX-TxO" firstAttribute="trailing" secondItem="tdz-39-ITa" secondAttribute="trailing" constant="40" id="u7T-CH-bCB"/>
+                            <constraint firstItem="mmb-kX-TxO" firstAttribute="trailing" secondItem="tdz-39-ITa" secondAttribute="trailing" constant="10" id="u7T-CH-bCB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YIC-g9-GzE"/>
