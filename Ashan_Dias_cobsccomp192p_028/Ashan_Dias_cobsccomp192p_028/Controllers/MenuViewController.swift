@@ -63,7 +63,7 @@ let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selecto
                 
                 group.notify(queue: .main) {
                         // do something here when loop finished
-                    self.button.isEnabled=true
+                   
                     self.dropDown.didSelect{(selectedText , index ,id) in
                         self.catSelectedItem=selectedText
                     }
@@ -108,9 +108,12 @@ let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selecto
                     
                     self.image.image = selectedimage
                     self.imageId=id
+                    
                 }else{
                     print(error)
+                  
                 }
+                self.button.isEnabled=true
             }
     }
     

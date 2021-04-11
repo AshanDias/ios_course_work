@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import UIKit
 struct MenuItem{
     var name:String
     var desc:String
@@ -15,7 +15,7 @@ struct MenuItem{
     var category:String
     var discount:Int
     var sellType:Bool
-    
+    var image:UIImage!
     func getJSON() -> NSMutableDictionary {
            let dict = NSMutableDictionary()
            dict.setValue(name, forKey: "name")
