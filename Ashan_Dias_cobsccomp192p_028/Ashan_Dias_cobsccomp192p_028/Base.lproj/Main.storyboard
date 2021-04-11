@@ -230,6 +230,7 @@
         <!--Category View Controller-->
         <scene sceneID="Xwc-fy-iSj">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uHy-c8-cde" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="ugy-MH-8b5" customClass="CategoryViewController" customModule="Ashan_Dias_cobsccomp192p_028" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AKZ-DB-9Fh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -258,6 +259,9 @@
                                 <state key="normal" title="ADD +">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="AddCategory:" destination="ugy-MH-8b5" eventType="touchUpInside" id="TIh-3M-ZSz"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tdz-39-ITa">
                                 <rect key="frame" x="40" y="370" width="295" height="240"/>
@@ -285,9 +289,10 @@
                     <navigationItem key="navigationItem" id="YIC-g9-GzE"/>
                     <connections>
                         <outlet property="button" destination="xs7-SR-H49" id="iLH-Ns-lJ6"/>
+                        <outlet property="tbl_category" destination="tdz-39-ITa" id="q4S-Id-pyM"/>
+                        <outlet property="txt_name" destination="boD-bq-Tj3" id="GTG-me-aBH"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uHy-c8-cde" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3430" y="2430"/>
         </scene>
@@ -916,7 +921,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Hdc-j0-bmb"/>
+        <segue reference="6on-1h-8mq"/>
         <segue reference="TnY-pO-n3y"/>
     </inferredMetricsTieBreakers>
     <resources>
