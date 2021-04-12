@@ -111,5 +111,9 @@ extension CategoryViewController:UITableViewDelegate,UITableViewDataSource{
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     
 }

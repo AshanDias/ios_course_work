@@ -153,7 +153,7 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     override func viewWillAppear(_ animated: Bool) {
-      
+        navigationController?.setNavigationBarHidden(true, animated: animated)
         loadData()
     
     }
