@@ -57,7 +57,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                             var price = arrayData["price"] as! String
                                 var priceVal = Double(price) as! Double
                            
-                            let cart = OrderDetails(unit: arrayData["unit"] as! Int, price: priceVal , name: arrayData["item"] as! String, cusName: arrayData["userName"] as! String, ord_id: "orderRefx0\(ord_id)" as! String, status: arrayData["status"] as! Int)
+                            let cart = OrderDetails(unit: arrayData["unit"] as! Int, price: priceVal , name: arrayData["item"] as! String, cusName: username, ord_id: "orderRefx0\(ord_id)" as! String, status: arrayData["status"] as! Int)
 
                            
                             self.orders.append(cart)
