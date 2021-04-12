@@ -17,6 +17,10 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var menuItem: [MenuItem] = [
       
    ]
+    
+    var groupMenuItems: [GroupMenuItems] = [
+    
+    ]
     @IBOutlet weak var tbl_menu: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,19 +45,27 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let indexPath = IndexPath(item: index, section: 0)
         tbl_menu.reloadRows(at: [indexPath], with: .top)
     }
+    //table define
+    func numberOfSections(in tableView: UITableView) -> Int {
+        groupMenuItems.count
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return menuItem.count
-        }
+        return groupMenuItems[section].item.count ?? 0
+    }
     
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-            let cell=tableView.dequeueReusableCell(withIdentifier: "PreviewTableViewCell", for: indexPath) as! PreviewTableViewCell
+        let cell=tableView.dequeueReusableCell(withIdentifier: "PreviewTableViewCell", for: indexPath) as! PreviewTableViewCell
     
-            cell.setupView(itm: menuItem[indexPath.row])
+//        cell.setupView(itm: menuItem[indexPath.row])
+        cell.setupView(itm: groupMenuItems[indexPath.section].item[indexPath.row])
+        return cell
+    }
     
-            return cell
-        }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return groupMenuItems[section].key
+    }
         
     @IBAction func clickCategory(_ sender: Any) {
         performSegue(withIdentifier: "categoryView", sender: nil)
@@ -82,39 +94,57 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
                  
                })
                group.notify(queue: .main) {
-               
-                for (index,item) in menuItem.enumerated() {
-                    self.imageStore.reference(withPath: "/\(item.img).jpg").getData(maxSize: 1 * 1024 * 1024, completion: {data,imageErr in
-
-                        if(imageErr != nil){
-
-                            switch StorageErrorCode(rawValue: imageErr!._code) {
-                            case .objectNotFound: break
-                                //if the image is not available in the database then display a default image
-                               // self.menuItem.i(index: index, newImage: #imageLiteral(resourceName: "foodDefault"))
-                            default:break
-                            }
-                        }else{
-                            //if no error then update the revant cell against the index to with newly fetched food picture
-                          
-                          provideImage(index: index, newImage:  UIImage(data: data!))
-                           
-                        }
-                    })
-                }
+//
+//                for (index,item) in menuItem.enumerated() {
+//                    self.imageStore.reference(withPath: "/\(item.img).jpg").getData(maxSize: 1 * 1024 * 1024, completion: {data,imageErr in
+//
+//                        if(imageErr != nil){
+//
+//                            switch StorageErrorCode(rawValue: imageErr!._code) {
+//                            case .objectNotFound: break
+//                                //if the image is not available in the database then display a default image
+//                               // self.menuItem.i(index: index, newImage: #imageLiteral(resourceName: "foodDefault"))
+//                            default:break
+//                            }
+//                        }else{
+//                            //if no error then update the revant cell against the index to with newly fetched food picture
+//
+//                          provideImage(index: index, newImage:  UIImage(data: data!))
+//
+//                        }
+//                    })
+//                }
             
-                    
+                let groupByCategory = Dictionary(grouping: menuItem) { (items) -> String in
+                    return items.category
+                }
+                
+                groupByCategory.forEach({(key,val) in
+                
+                    groupMenuItems.append(GroupMenuItems.init(key: key, item: val))
+                })
+                
+                
+                
+             
                 self.tbl_menu.reloadData()
                }
-              // print("Got data",snapshot.value!)
+              
            }
             
         }
     }
     
+    private func firstDayOfMonth(date: Date) -> Date {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month], from: date)
+        return calendar.date(from: components)!
+    }
     
     override func viewWillAppear(_ animated: Bool) {
-       loadData()
+        loadData()
+       
+      
     }
     /*
     // MARK: - Navigation

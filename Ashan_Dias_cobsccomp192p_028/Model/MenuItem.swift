@@ -28,3 +28,8 @@ struct MenuItem{
            return dict
        }
 }
+
+struct GroupMenuItems{
+    var key:String
+    var item:[MenuItem]
+}
