@@ -67,6 +67,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btn_a_s" destination="PLv-U3-nub" id="qQ3-C7-Z87"/>
+                <outlet property="btn_rj" destination="hy9-SU-Miy" id="C5Y-iE-Xr6"/>
                 <outlet property="name" destination="Icw-ZL-kYp" id="aKo-zx-3zz"/>
                 <outlet property="ordid" destination="BcF-h9-Qtq" id="0ys-5p-cjD"/>
             </connections>

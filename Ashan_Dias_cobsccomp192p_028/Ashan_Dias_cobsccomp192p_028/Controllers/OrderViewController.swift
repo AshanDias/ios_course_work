@@ -16,6 +16,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
     
     @IBOutlet weak var tbl_orders:UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +27,9 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
         tbl_orders.dataSource=self
         // Do any additional setup after loading the view.
     }
+    
+   
+
     
     
     func loadData(){
