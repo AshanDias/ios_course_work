@@ -450,6 +450,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YHc-tv-t1k"/>
                     <connections>
+                        <outlet property="tbl_orders" destination="2mx-8g-clJ" id="k72-Rq-ILu"/>
                         <segue destination="OpE-zo-Ypy" kind="show" id="MA8-O6-aMe"/>
                     </connections>
                 </viewController>
