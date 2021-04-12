@@ -33,17 +33,16 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
         // Do any additional setup after loading the view.
     }
     
-    func provideImage(index:Int,newImage:UIImage?) {
+    func provideImage(index:Int,newImage:UIImage?,indexMain: Int) {
         if(newImage == nil){
             return
         }
-        if(index > menuItem.count){
+        if(index > groupMenuItems.count){
             return // very rare index out bound exception can occur sometimes
         }
-        menuItem[index].image = newImage
-
-        let indexPath = IndexPath(item: index, section: 0)
-        tbl_menu.reloadRows(at: [indexPath], with: .top)
+        
+        groupMenuItems[indexMain].item[index].image=newImage
+        tbl_menu.reloadData()
     }
     //table define
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -94,7 +93,9 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
                  
                })
                group.notify(queue: .main) {
-//
+                
+              
+               
 //                for (index,item) in menuItem.enumerated() {
 //                    self.imageStore.reference(withPath: "/\(item.img).jpg").getData(maxSize: 1 * 1024 * 1024, completion: {data,imageErr in
 //
@@ -124,6 +125,47 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     groupMenuItems.append(GroupMenuItems.init(key: key, item: val))
                 })
                 
+                
+                for (indexMain,val) in groupMenuItems.enumerated() {
+                 
+                    for (index,item) in val.item.enumerated() {
+                        self.imageStore.reference(withPath: "/\(item.img).jpg").getData(maxSize: 1 * 1024 * 1024, completion: {data,imageErr in
+
+                            if(imageErr != nil){
+
+                                switch StorageErrorCode(rawValue: imageErr!._code) {
+                                case .objectNotFound: break
+                                    //if the image is not available in the database then display a default image
+                                   // self.menuItem.i(index: index, newImage: #imageLiteral(resourceName: "foodDefault"))
+                                default:break
+                                }
+                            }else{
+                                //if no error then update the revant cell against the index to with newly fetched food picture
+
+                                provideImage(index: index, newImage:  UIImage(data: data!),indexMain : indexMain)
+
+                            }
+                        })
+                    }
+                    
+//                    self.imageStore.reference(withPath: "/\(val.item[index].img).jpg").getData(maxSize: 1 * 1024 * 1024, completion: {data,imageErr in
+//
+//                        if(imageErr != nil){
+//
+//                            switch StorageErrorCode(rawValue: imageErr!._code) {
+//                            case .objectNotFound: break
+//                                //if the image is not available in the database then display a default image
+//                               // self.menuItem.i(index: index, newImage: #imageLiteral(resourceName: "foodDefault"))
+//                            default:break
+//                            }
+//                        }else{
+//                            //if no error then update the revant cell against the index to with newly fetched food picture
+//
+//                          provideImage(index: index, newImage:  UIImage(data: data!))
+//
+//                        }
+//                    })
+                }
                 
                 
              
