@@ -19,6 +19,7 @@ class PreviewTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.sellType.isEnabled=false
         // Initialization code
     }
 
