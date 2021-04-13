@@ -132,6 +132,18 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                     }
                                 }
                                 
+                                let groupByOrders = Dictionary(grouping: ordersItems) { (items) -> Int in
+                                    return items.status
+                                }
+                                
+                                groupByOrders.forEach({(key,val) in
+                               
+                                    
+                                    self.grouporders.append(GroupOrders.init(status: key, orders: val))
+                                })
+                                
+                                self.tbl_orders.reloadData()
+                                
                             }
                             
                         }else{
@@ -154,17 +166,9 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                         
                     }
                     
-                    let groupByOrders = Dictionary(grouping: ordersItems) { (items) -> Int in
-                        return items.status
-                    }
-                    
-                    groupByOrders.forEach({(key,val) in
                    
-                        
-                        self.grouporders.append(GroupOrders.init(status: key, orders: val))
-                    })
                     
-                    self.tbl_orders.reloadData()
+                    
                    
                 }
                
