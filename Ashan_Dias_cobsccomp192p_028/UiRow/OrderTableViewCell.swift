@@ -46,7 +46,8 @@ class OrderTableViewCell: UITableViewCell {
         var ordRes = ordersItems.first(where: { $0.ord_id == ordid.text}) as! OrderDetails
         ordRes.status = 2
         self.database.child("OrderItems").child(ordid.text!).setValue(ordRes.getJSON())
-       
+        
+     
     }
     
 }

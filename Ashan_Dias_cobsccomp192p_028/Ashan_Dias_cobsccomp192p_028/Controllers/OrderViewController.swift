@@ -138,7 +138,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                     }
                                 }
                                 
-                                let groupByOrders = Dictionary(grouping: ordersItems) { (items) -> Int in
+                                var groupByOrders = Dictionary(grouping: ordersItems) { (items) -> Int in
                                     return items.status
                                 }
                                 
@@ -220,7 +220,6 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
             status=grouporders[section].status
         }
     
-       
         if(status == 1){
             return "New"
         }else {
