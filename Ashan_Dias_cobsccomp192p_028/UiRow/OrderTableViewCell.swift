@@ -43,48 +43,34 @@ class OrderTableViewCell: UITableViewCell {
         var status=Int(order.status!)
 
         
-            if(status == 1){
-                btn_rj.isHidden=false
-                btn_a_s.setTitle("Accept", for: .normal)
-                btn_a_s.backgroundColor = .systemGreen
-            }
-            if(status == 2 ){
+        
+        switch Int(order.status) {
+        case 1:
+            btn_rj.isHidden=false
+            btn_a_s.setTitle("Accept", for: .normal)
+            btn_a_s.backgroundColor = .systemGreen
+            break
+        case 2:
+            btn_rj.isHidden=true
+            btn_a_s.backgroundColor = .systemBlue
+            btn_a_s.setTitle("Prepar", for: .normal)
 
-                btn_rj.isHidden=true
-                btn_a_s.backgroundColor = .systemBlue
-                btn_a_s.setTitle("Prepar", for: .normal)
-            }
-            if(status == 4){
-                btn_rj.isHidden=true
-                btn_a_s.backgroundColor = .orange
-                btn_a_s.setTitle("Ready", for: .normal)
-
-            }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        switch Int(order.status) {
-//        case 2:
-//            btn_rj.isHidden=true
-//            btn_a_s.backgroundColor = .systemBlue
-//            btn_a_s.setTitle("Prepar", for: .normal)
-//
-//            break
-//        case 4:
-//            btn_rj.isHidden=true
-//            btn_a_s.backgroundColor = .orange
-//            btn_a_s.setTitle("Ready", for: .normal)
-//            break
-//        default:
-//            break
-//        }
+            break
+        case 4:
+            btn_rj.isHidden=true
+            btn_a_s.backgroundColor = .orange
+            btn_a_s.setTitle("Ready", for: .normal)
+            break
+        case 10:
+            
+            btn_rj.isHidden=true
+            btn_a_s.isEnabled=false
+            btn_a_s.setTitle("Rejected", for: .normal)
+            btn_a_s.backgroundColor = .purple
+            break
+        default:
+            break
+        }
        
     }
     
@@ -108,6 +94,7 @@ class OrderTableViewCell: UITableViewCell {
         case 2:
             ordRes.status = 4 //4 is ready status
             break
+            
         default:
             break
         }
@@ -117,4 +104,20 @@ class OrderTableViewCell: UITableViewCell {
      
     }
     
+    @IBAction func btnReject(_ sender: Any) {
+        var ordRes = ordersItems.first(where: { $0.ord_id == ordid.text}) as! OrderDetails
+      
+        switch ordRes.status {
+        case 1:
+            
+            ordRes.status = 10
+           break
+       
+        default:
+            break
+        }
+        
+        
+        self.database.child("OrderItems").child(ordid.text!).setValue(ordRes.getJSON())
+    }
 }

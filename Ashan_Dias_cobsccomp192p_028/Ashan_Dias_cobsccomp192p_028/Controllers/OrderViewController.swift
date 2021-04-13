@@ -227,7 +227,11 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
     
         if(status == 1){
             return "New"
-        }else {
+        }
+        else if(status == 10){
+            return "Cancelled"
+        }
+        else {
             return "Ready"
         }
        
