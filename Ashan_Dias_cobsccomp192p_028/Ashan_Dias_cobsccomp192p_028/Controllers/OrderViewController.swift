@@ -91,11 +91,12 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                     }
                     
                     groupByOrders.forEach({(key,val) in
-                    
-//                        print("key",key)
-//                        print("val",val)
-//                        grouporders.append(GroupOrders.init(status: <#T##Int#>, orders: <#T##[OrderDetails]#>))
+                   
+                        
+                        self.grouporders.append(GroupOrders.init(status: key, orders: val))
                     })
+                    
+                  
                     
                     self.tbl_orders.reloadData()
                 }
@@ -116,14 +117,26 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return orders.count
+        return grouporders[section].orders.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell=tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as! OrderTableViewCell
     
-        cell.setupView(order: orders[indexPath.row])
+        cell.setupView(order: grouporders[indexPath.section].orders[indexPath.row])
+//        cell.setupView(order: orders[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var status=grouporders[section].status
+       
+        if(status == 1){
+            return "New"
+        }else {
+            return "Ready"
+        }
+       
     }
     
   
