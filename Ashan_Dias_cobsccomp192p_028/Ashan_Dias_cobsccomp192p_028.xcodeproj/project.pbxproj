@@ -30,6 +30,7 @@
 		98EEA56E26242D58001048A7 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEA56C26242D58001048A7 /* OrderTableViewCell.swift */; };
 		98EEA56F26242D58001048A7 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98EEA56D26242D58001048A7 /* OrderTableViewCell.xib */; };
 		98EEA5742624432D001048A7 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEA5732624432D001048A7 /* Orders.swift */; };
+		98EEA65E2625E271001048A7 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEA65D2625E271001048A7 /* OrderDetailsViewController.swift */; };
 		98F6D240261EF9EC00AEA8BA /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6D23F261EF9EC00AEA8BA /* PreviewViewController.swift */; };
 		98F6D245261EFA0A00AEA8BA /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6D244261EFA0A00AEA8BA /* CategoryViewController.swift */; };
 		98F6D24A261EFA2B00AEA8BA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6D249261EFA2B00AEA8BA /* MenuViewController.swift */; };
@@ -90,6 +91,7 @@
 		98EEA56C26242D58001048A7 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		98EEA56D26242D58001048A7 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
 		98EEA5732624432D001048A7 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
+		98EEA65D2625E271001048A7 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		98F6D23F261EF9EC00AEA8BA /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		98F6D244261EFA0A00AEA8BA /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		98F6D249261EFA2B00AEA8BA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				98F6D244261EFA0A00AEA8BA /* CategoryViewController.swift */,
 				98F6D249261EFA2B00AEA8BA /* MenuViewController.swift */,
 				98EEA56726242840001048A7 /* OrderViewController.swift */,
+				98EEA65D2625E271001048A7 /* OrderDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 			files = (
 				989756CE261DA03800126288 /* LocationViewController.swift in Sources */,
 				98F6D24A261EFA2B00AEA8BA /* MenuViewController.swift in Sources */,
+				98EEA65E2625E271001048A7 /* OrderDetailsViewController.swift in Sources */,
 				98EEA56E26242D58001048A7 /* OrderTableViewCell.swift in Sources */,
 				98975663261C675300126288 /* LoginViewController.swift in Sources */,
 				9897565F261C675300126288 /* AppDelegate.swift in Sources */,

@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 
+var currentIndex=0
 var orders: [OrderDetails] = [
   
 ]
@@ -217,6 +218,11 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
            
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentIndex = indexPath.row
+        performSegue(withIdentifier: "orderDetails", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
