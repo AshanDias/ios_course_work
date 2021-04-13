@@ -44,7 +44,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
         
         orders.removeAll()
         grouporders.removeAll()
-        ordersItems.removeAll()
+//        ordersItems.removeAll()
         let group = DispatchGroup()
         self.database.child("Orders").getData { (error, snapshot) in
              if snapshot.exists() {
@@ -104,6 +104,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                         if snapshot.exists() {
                             var dataChange = snapshot.value as! [String:AnyObject]
                             group2.wait()
+                            ordersItems.removeAll()
                             dataChange.forEach({(key,arrayData) in
 //
                                 var data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as! String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: arrayData["status"] as! Int)
@@ -153,7 +154,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                         
                     }
                     
-                    let groupByOrders = Dictionary(grouping: orders) { (items) -> Int in
+                    let groupByOrders = Dictionary(grouping: ordersItems) { (items) -> Int in
                         return items.status
                     }
                     
