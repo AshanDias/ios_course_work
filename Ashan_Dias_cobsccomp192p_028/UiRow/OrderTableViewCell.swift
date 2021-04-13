@@ -85,7 +85,7 @@ class OrderTableViewCell: UITableViewCell {
     @IBAction func btnAccept(_ sender: Any) {
         var ordRes = ordersItems.first(where: { $0.ord_id == ordid.text}) as! OrderDetails
         
-      
+       
         switch ordRes.status {
         case 1:
             
