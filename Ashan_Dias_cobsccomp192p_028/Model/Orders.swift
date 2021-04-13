@@ -16,6 +16,7 @@ struct  OrderDetails {
     var ord_id:String
     var status:Int!
     var randNo:Int!
+    var tel:Int!
     
     func getJSON() -> NSMutableDictionary {
            let dict = NSMutableDictionary()
@@ -26,6 +27,7 @@ struct  OrderDetails {
             dict.setValue(ord_id, forKey: "ord_id")
             dict.setValue(status, forKey: "status")
             dict.setValue(randNo, forKey: "randNo")
+            dict.setValue(tel, forKey: "tel")
            return dict
        }
 }
