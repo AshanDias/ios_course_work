@@ -33,6 +33,9 @@
                         <state key="normal" title="Accept">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <connections>
+                            <action selector="btnAccept:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Qew-wJ-VsX"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hy9-SU-Miy">
                         <rect key="frame" x="168" y="35" width="63" height="45"/>

@@ -59,14 +59,20 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
         let cell=tableView.dequeueReusableCell(withIdentifier: "PreviewTableViewCell", for: indexPath) as! PreviewTableViewCell
-    
-//        cell.setupView(itm: menuItem[indexPath.row])
-        cell.setupView(itm: groupMenuItems[indexPath.section].item[indexPath.row])
+      
+        if(groupMenuItems.count > 0){
+            cell.setupView(itm: groupMenuItems[indexPath.section].item[indexPath.row])
+        }
+      
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return groupMenuItems[section].key
+        if(groupMenuItems.count > 0){
+            return groupMenuItems[section].key
+        }
+        return ""
+        
     }
         
     @IBAction func clickCategory(_ sender: Any) {
@@ -111,7 +117,7 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     groupMenuItems.append(GroupMenuItems.init(key: key, item: val))
                 })
                 
-                
+               
                 for (indexMain,val) in groupMenuItems.enumerated() {
                  
                     for (index,item) in val.item.enumerated() {

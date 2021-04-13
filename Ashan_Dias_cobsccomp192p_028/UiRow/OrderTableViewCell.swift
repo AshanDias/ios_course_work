@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Firebase
 
 class OrderTableViewCell: UITableViewCell {
-
+    private let database = Database.database().reference()
     
     
     
@@ -41,5 +42,11 @@ class OrderTableViewCell: UITableViewCell {
         btn_a_s.layer.borderWidth = 0
     }
     
-   
+    @IBAction func btnAccept(_ sender: Any) {
+        var ordRes = orders.first(where: { $0.ord_id == ordid.text}) as! OrderDetails
+        ordRes.status = 2
+        self.database.child("OrderItems").child(ordid.text!).setValue(ordRes.getJSON())
+        print(ordRes)
+    }
+    
 }
