@@ -44,6 +44,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
         
         orders.removeAll()
         grouporders.removeAll()
+        ordersItems.removeAll()
         let group = DispatchGroup()
         self.database.child("Orders").getData { (error, snapshot) in
              if snapshot.exists() {
@@ -95,17 +96,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                 
                 group.notify(queue: .main) {
                  
-                    let groupByOrders = Dictionary(grouping: orders) { (items) -> Int in
-                        return items.status
-                    }
-                    
-                    groupByOrders.forEach({(key,val) in
-                   
-                        
-                        self.grouporders.append(GroupOrders.init(status: key, orders: val))
-                    })
-                    
-                    self.tbl_orders.reloadData()
+                 
                     //fetch data
                  
                     let group2 = DispatchGroup()
@@ -129,9 +120,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                 for item in orders{
                                     
                                     var res = ordersItems.first(where: {$0.ord_id == item.ord_id})?.ord_id
-                                    print("bbb",res)
-                                    print(item)
-                                    
+                                   
                                     if(res==nil){
                                        
                                       
@@ -149,9 +138,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                             for item in orders{
                                 
                                 var res = ordersItems.first(where: {$0.ord_id == item.ord_id})?.ord_id
-                                print("bbb",res)
-                                print(item)
-                                
+                               
                                 if(res==nil){
                                    
                                   
@@ -166,7 +153,17 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                         
                     }
                     
+                    let groupByOrders = Dictionary(grouping: orders) { (items) -> Int in
+                        return items.status
+                    }
+                    
+                    groupByOrders.forEach({(key,val) in
                    
+                        
+                        self.grouporders.append(GroupOrders.init(status: key, orders: val))
+                    })
+                    
+                    self.tbl_orders.reloadData()
                    
                 }
                
