@@ -13,7 +13,9 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
     var orders: [OrderDetails] = [
       
    ]
+    var grouporders: [GroupOrders] = [
     
+    ]
     @IBOutlet weak var tbl_orders:UITableView!
     
     
@@ -61,14 +63,17 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                             var price = arrayData["price"] as! String
                                 var priceVal = Double(price) as! Double
                            
-                            let cart = OrderDetails(unit: arrayData["unit"] as! Int, price: priceVal , name: arrayData["item"] as! String, cusName: username, ord_id: "orderRefx0\(ord_id)" as! String, status: arrayData["status"] as! Int)
-
-                           
+                            var cart = OrderDetails(unit: arrayData["unit"] as! Int, price: priceVal , name: arrayData["item"] as! String, cusName: username, ord_id: "orderRefx0\(ord_id)" as! String, status: arrayData["status"] as! Int)
+                            
+                            var number = Int.random(in: 0..<60)
+                            cart.randNo = number
                             self.orders.append(cart)
+                            self.database.child("OrderItems").child(String(ord_id)).setValue(cart.getJSON())
+                            ord_id+=1
                         }
                         
                         i+=1
-                        ord_id+=1
+                        
                     })
                 })
                 
@@ -80,11 +85,21 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
               
                 
                 group.notify(queue: .main) {
-                        // do something here when loop finished
-//                    self.catItems.sorted() { $0.name > $1.name }
+                 
+                    let groupByOrders = Dictionary(grouping: self.orders) { (items) -> Int in
+                        return items.status
+                    }
+                    
+                    groupByOrders.forEach({(key,val) in
+                    
+//                        print("key",key)
+//                        print("val",val)
+//                        grouporders.append(GroupOrders.init(status: <#T##Int#>, orders: <#T##[OrderDetails]#>))
+                    })
+                    
                     self.tbl_orders.reloadData()
                 }
-               // print("Got data",snapshot.value!)
+               
             }
         }
         
@@ -94,6 +109,12 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
         loadData()
     }
     
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        grouporders.count
+    }
+    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return orders.count
     }

@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct Order{
-    var cusName:String
-    var ord_id:String
-    var status:Int!
-}
 
 struct  OrderDetails {
     var unit:Int
@@ -20,4 +15,22 @@ struct  OrderDetails {
     var cusName:String
     var ord_id:String
     var status:Int!
+    var randNo:Int!
+    
+    func getJSON() -> NSMutableDictionary {
+           let dict = NSMutableDictionary()
+           dict.setValue(unit, forKey: "unit")
+            dict.setValue(price, forKey: "price")
+            dict.setValue(name, forKey: "name")
+            dict.setValue(cusName, forKey: "cusName")
+            dict.setValue(ord_id, forKey: "ord_id")
+            dict.setValue(status, forKey: "status")
+            dict.setValue(randNo, forKey: "randNo")
+           return dict
+       }
+}
+
+struct GroupOrders{
+    var status:Int
+    var orders:[OrderDetails]
 }

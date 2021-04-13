@@ -9,6 +9,9 @@ import UIKit
 
 class OrderTableViewCell: UITableViewCell {
 
+    
+    
+    
     @IBOutlet weak var name:UILabel!
     @IBOutlet weak var ordid:UILabel!
     @IBOutlet weak var btn_rj:UIButton!
