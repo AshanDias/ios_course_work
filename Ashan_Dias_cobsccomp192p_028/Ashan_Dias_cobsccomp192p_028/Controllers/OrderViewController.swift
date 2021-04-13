@@ -17,7 +17,7 @@ var ordersItems: [OrderDetails] = [
 
 class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     private let database = Database.database().reference()
-    
+    var refreshControl: UIRefreshControl?
   
     var grouporders: [GroupOrders] = [
     
@@ -33,14 +33,21 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
         
         tbl_orders.delegate=self
         tbl_orders.dataSource=self
+        refreshData()
         // Do any additional setup after loading the view.
     }
     
    
-
+    func refreshData(){
+        refreshControl = UIRefreshControl()
+               refreshControl?.tintColor = UIColor.red
+        refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
+               tbl_orders.addSubview(refreshControl!)
+       
+    }
     
     
-    func loadData(){
+    @objc func loadData(){
         
         orders.removeAll()
         grouporders.removeAll()
@@ -94,7 +101,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                 
               
                 
-                group.notify(queue: .main) {
+                group.notify(queue: .main) { [self] in
                  
                  
                     //fetch data
@@ -111,11 +118,10 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                 
                                 ordersItems.append(data)
 //
-                               
-                                
+                              
                             })
                             
-                            group2.notify(queue: .main){
+                            group2.notify(queue: .main){ [self] in
                                
 //                                cartItems.first(where:{ $0.item == lbl_item.text})
                                 for item in orders{
@@ -141,9 +147,9 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                     
                                     self.grouporders.append(GroupOrders.init(status: key, orders: val))
                                 })
-                                
+                               
                                 self.tbl_orders.reloadData()
-                                
+                                refreshControl?.endRefreshing()
                             }
                             
                         }else{
@@ -174,7 +180,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                     
                    
                     
-                    
+                    refreshControl?.endRefreshing()
                    
                 }
                
