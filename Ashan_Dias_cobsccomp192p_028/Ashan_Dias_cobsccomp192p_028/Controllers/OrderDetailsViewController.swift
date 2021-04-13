@@ -24,9 +24,6 @@ class OrderDetailsViewController: UIViewController {
         
         setBtn()
         
-       
-       
-        print(currentIndex)
         lbl_unit.text = String(orderResult.unit)
         lbl_itemName.text = orderResult.name
         lbl_price.text = String(orderResult.price)

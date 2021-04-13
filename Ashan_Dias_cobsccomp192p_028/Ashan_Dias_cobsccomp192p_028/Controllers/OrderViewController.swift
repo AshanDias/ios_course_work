@@ -32,8 +32,10 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
         
         let nib=UINib(nibName: "OrderTableViewCell", bundle: nil)
         tbl_orders.register(nib, forCellReuseIdentifier: "OrderTableViewCell")
+       
         tbl_orders.delegate=self
         tbl_orders.dataSource=self
+        
         refreshData()
         // Do any additional setup after loading the view.
     }
@@ -122,6 +124,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                     
                                     ordersItems.append(data)
     //
+                                   
                                   
                                 })
                                 
@@ -139,6 +142,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                             
                                            
                                             self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
+                                            
                                         }
                                     }
                                    
@@ -156,9 +160,9 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                        
                                     
                                    
-                                    
-                                    self.tbl_orders.reloadData()
-                                    refreshControl?.endRefreshing()
+                                        self.tbl_orders.reloadData()
+                                        self.tbl_orders.reloadData()
+                                   // refreshControl?.endRefreshing()
                                 }
                                 
                             }else{
@@ -187,9 +191,9 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                             
                         }
                         
-                       
+                     
                         refreshControl?.endRefreshing()
-                        self.tbl_orders.reloadData()
+                        
                     }
                    
                 }
@@ -199,16 +203,19 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadData()
+      //  loadData()
     }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        grouporders.count
+       
+        return grouporders.count
     }
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
+       
         return grouporders[section].orders.count ?? 0
     }
     
@@ -222,16 +229,23 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
             cell.setupView(order: grouporders[indexPath.section].orders[indexPath.row])
            
         }
+//        tableView.delegate =  self
+      
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      
+       
         currentIndex = ordersItems[indexPath[0]].ord_id
         
-        performSegue(withIdentifier: "orderDetails", sender: nil)
+            performSegue(withIdentifier: "orderDetails", sender: nil)
+        
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         var status=1
         if(grouporders.count > 0){
             status=grouporders[section].status
@@ -254,6 +268,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
         }
        
     }
+    
     
   
 
