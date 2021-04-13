@@ -73,11 +73,10 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                            
                             var cart = OrderDetails(unit: arrayData["unit"] as! Int, price: priceVal , name: arrayData["item"] as! String, cusName: username, ord_id: orderId as! String, status: arrayData["status"] as! Int)
                             
-//                            var number = Int.random(in: 0..<60)
-//                            cart.randNo = number
+                            
                             orders.append(cart)
                             
-//                            self.database.child("OrderItems").child(String(orderId)).setValue(cart.getJSON())
+                           
                             ord_id+=1
                         }
                         
@@ -124,17 +123,24 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                             })
                             
                             group2.notify(queue: .main){
-                                var i=0;
-                                //compare
-                                for itme in orders{
+                           
+//                                cartItems.first(where:{ $0.item == lbl_item.text})
+                                for item in orders{
                                     
-                                    if(orders[i].ord_id == self.ordersItems[i].ord_id){
-                                        print("eq")
-                                    }else{
-                                        print("neq")
+                                    var res = self.ordersItems.first(where: {$0.ord_id == item.ord_id})?.ord_id
+                                    print("bbb",res)
+                                    print(item)
+                                    
+                                    if(res==nil){
+                                        var number = Int.random(in: 1..<60)
+                                      
+                                        var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status, randNo: number)
+                                        
+                                       
+                                        self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
                                     }
-                                    i+=1
                                 }
+                                
                             }
                             
                         }
