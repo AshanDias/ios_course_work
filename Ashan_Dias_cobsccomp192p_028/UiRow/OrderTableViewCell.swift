@@ -32,6 +32,60 @@ class OrderTableViewCell: UITableViewCell {
         name.text=order.cusName
         ordid.text=order.ord_id
         setBtn()
+        
+        //status
+        // 1= acept or reject
+        // 2 = accepted
+        // 3 reject
+        // 4 = ready
+        //5 = arriving
+
+        var status=Int(order.status!)
+
+        
+            if(status == 1){
+                btn_rj.isHidden=false
+                btn_a_s.setTitle("Accept", for: .normal)
+                btn_a_s.backgroundColor = .systemGreen
+            }
+            if(status == 2 ){
+
+                btn_rj.isHidden=true
+                btn_a_s.backgroundColor = .systemBlue
+                btn_a_s.setTitle("Prepar", for: .normal)
+            }
+            if(status == 4){
+                btn_rj.isHidden=true
+                btn_a_s.backgroundColor = .orange
+                btn_a_s.setTitle("Ready", for: .normal)
+
+            }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//        switch Int(order.status) {
+//        case 2:
+//            btn_rj.isHidden=true
+//            btn_a_s.backgroundColor = .systemBlue
+//            btn_a_s.setTitle("Prepar", for: .normal)
+//
+//            break
+//        case 4:
+//            btn_rj.isHidden=true
+//            btn_a_s.backgroundColor = .orange
+//            btn_a_s.setTitle("Ready", for: .normal)
+//            break
+//        default:
+//            break
+//        }
+       
     }
     
     func setBtn(){
@@ -44,9 +98,22 @@ class OrderTableViewCell: UITableViewCell {
     
     @IBAction func btnAccept(_ sender: Any) {
         var ordRes = ordersItems.first(where: { $0.ord_id == ordid.text}) as! OrderDetails
-        ordRes.status = 2
-        self.database.child("OrderItems").child(ordid.text!).setValue(ordRes.getJSON())
         
+      
+        switch ordRes.status {
+        case 1:
+            
+            ordRes.status = 2
+           break
+        case 2:
+            ordRes.status = 4 //4 is ready status
+            break
+        default:
+            break
+        }
+        
+        
+        self.database.child("OrderItems").child(ordid.text!).setValue(ordRes.getJSON())
      
     }
     

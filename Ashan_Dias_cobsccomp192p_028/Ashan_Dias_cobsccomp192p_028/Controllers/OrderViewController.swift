@@ -30,7 +30,6 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
         
         let nib=UINib(nibName: "OrderTableViewCell", bundle: nil)
         tbl_orders.register(nib, forCellReuseIdentifier: "OrderTableViewCell")
-        
         tbl_orders.delegate=self
         tbl_orders.dataSource=self
         refreshData()
@@ -137,7 +136,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                         self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
                                     }
                                 }
-                                
+                               
                                 var groupByOrders = Dictionary(grouping: ordersItems) { (items) -> Int in
                                     return items.status
                                 }
@@ -149,6 +148,12 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                 })
                                
                                 self.tbl_orders.reloadData()
+                                
+                               // self.tbl_orders.reloadData()
+                                
+//                                self.tbl_orders.layoutIfNeeded()
+//                                self.tbl_orders.beginUpdates()
+//                                self.tbl_orders.endUpdates()
                                 refreshControl?.endRefreshing()
                             }
                             
@@ -205,7 +210,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell=tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as! OrderTableViewCell
-    
+        
        
         if(grouporders.count > 0){
             cell.setupView(order: grouporders[indexPath.section].orders[indexPath.row])
