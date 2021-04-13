@@ -11,12 +11,13 @@ import Firebase
 var orders: [OrderDetails] = [
   
 ]
+var ordersItems: [OrderDetails] = [
+  
+]
+
 class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     private let database = Database.database().reference()
     
-    var ordersItems: [OrderDetails] = [
-      
-    ]
   
     var grouporders: [GroupOrders] = [
     
@@ -106,7 +107,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                     
                     self.tbl_orders.reloadData()
                     //fetch data
-                    
+                 
                     let group2 = DispatchGroup()
                     self.database.child("OrderItems").getData { (error, snapshot) in
                         if snapshot.exists() {
@@ -116,25 +117,25 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
 //
                                 var data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as! String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: arrayData["status"] as! Int)
                                 
-                                self.ordersItems.append(data)
+                                ordersItems.append(data)
 //
                                
                                 
                             })
                             
                             group2.notify(queue: .main){
-                           
+                               
 //                                cartItems.first(where:{ $0.item == lbl_item.text})
                                 for item in orders{
                                     
-                                    var res = self.ordersItems.first(where: {$0.ord_id == item.ord_id})?.ord_id
+                                    var res = ordersItems.first(where: {$0.ord_id == item.ord_id})?.ord_id
                                     print("bbb",res)
                                     print(item)
                                     
                                     if(res==nil){
-                                        var number = Int.random(in: 1..<60)
+                                       
                                       
-                                        var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status, randNo: number)
+                                        var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status)
                                         
                                        
                                         self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
@@ -143,6 +144,23 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                 
                             }
                             
+                        }else{
+                            
+                            for item in orders{
+                                
+                                var res = ordersItems.first(where: {$0.ord_id == item.ord_id})?.ord_id
+                                print("bbb",res)
+                                print(item)
+                                
+                                if(res==nil){
+                                   
+                                  
+                                    var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status)
+                                    
+                                   
+                                    self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
+                                }
+                            }
                         }
                         
                         
