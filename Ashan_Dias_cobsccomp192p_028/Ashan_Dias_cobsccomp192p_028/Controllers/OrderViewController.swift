@@ -147,20 +147,26 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                             }
                             
                         }else{
-                            
-                            for item in orders{
-                                
-                                var res = ordersItems.first(where: {$0.ord_id == item.ord_id})?.ord_id
-                               
-                                if(res==nil){
-                                   
-                                  
-                                    var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status)
+                            if(orders.count > 0){
+                                for item in orders{
                                     
+                                    var res = ordersItems.first(where: {$0.ord_id == item.ord_id})?.ord_id
                                    
-                                    self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
+                                    if(res==nil){
+                                       
+                                      
+                                        var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status)
+                                        
+                                       
+                                        self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
+                                    }
                                 }
+                            }else{
+                                ordersItems.removeAll()
+                              
                             }
+                           
+                    
                         }
                         
                         
