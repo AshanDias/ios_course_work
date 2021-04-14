@@ -53,6 +53,7 @@ class PrintDataViewController: UIViewController {
             group.notify(queue: .main) { [self] in
                 
                  tbl_print.reloadData()
+            
 //                refreshControl?.endRefreshing()
 //                print(ordersItems)
             }
@@ -90,7 +91,7 @@ extension PrintDataViewController:UITableViewDelegate,UITableViewDataSource{
         let cell=tableView.dequeueReusableCell(withIdentifier: "PrintTableViewCell", for: indexPath) as! PrintTableViewCell
      
         cell.setupView(order: ordersItems[indexPath.row])
-        print(cell.lbl_item.text)
+       
         return cell
     }
     
