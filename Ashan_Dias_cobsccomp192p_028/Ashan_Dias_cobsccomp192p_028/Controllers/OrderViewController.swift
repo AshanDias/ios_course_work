@@ -52,7 +52,9 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
     
     @objc func loadData(){
         
-        
+        let today = Date()
+        let formatter1 = DateFormatter()
+        formatter1.dateStyle = .short
 //        let cacheData = cache.object(forKey: "grouporders")
      
             orders.removeAll()
@@ -86,7 +88,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                 var price = arrayData["price"] as! String
                                     var priceVal = Double(price) as! Double
                                
-                                var cart = OrderDetails(unit: arrayData["unit"] as! Int, price: priceVal , name: arrayData["item"] as! String, cusName: username, ord_id: orderId as! String, status: arrayData["status"] as! Int,tel: arrayData["tel"] as! Int)
+                                var cart = OrderDetails(unit: arrayData["unit"] as! Int, price: priceVal , name: arrayData["item"] as! String, cusName: username, ord_id: orderId as! String, status: arrayData["status"] as! Int,tel: arrayData["tel"] as! Int,date: arrayData["date"] as! String)
                                 
                                 
                                 orders.append(cart)
@@ -109,7 +111,8 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                     
                     group.notify(queue: .main) { [self] in
                      
-                     
+                      
+                      
                         //fetch data
                      
                         let group2 = DispatchGroup()
@@ -120,7 +123,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                 ordersItems.removeAll()
                                 dataChange.forEach({(key,arrayData) in
     //
-                                    var data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as! String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: arrayData["status"] as! Int,tel: arrayData["tel"] as! Int)
+                                    var data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as! String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: arrayData["status"] as! Int,tel: arrayData["tel"] as! Int,date: arrayData["date"] as! String)
                                     
                                     ordersItems.append(data)
     //
@@ -138,7 +141,8 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                         if(res==nil){
                                            
                                           
-                                            var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel)
+                                          
+                                            var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel,date: formatter1.string(from: today))
                                             
                                            
                                             self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
@@ -172,9 +176,10 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                         var res = ordersItems.first(where: {$0.ord_id == item.ord_id})?.ord_id
                                        
                                         if(res==nil){
-                                           
-                                          
-                                            var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel)
+                                            
+                                         
+                                            
+                                            var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel,date: formatter1.string(from: today))
                                             
                                            
                                             self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
@@ -191,7 +196,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                             
                         }
                         
-                     
+                        self.tbl_orders.reloadData()
                         refreshControl?.endRefreshing()
                         
                     }
@@ -203,7 +208,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
     }
     
     override func viewWillAppear(_ animated: Bool) {
-      //  loadData()
+        loadData()
     }
     
     
@@ -236,7 +241,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //
-//       
+//
 //        currentIndex = ordersItems[indexPath[0]].ord_id
 //
 //        //    performSegue(withIdentifier: "orderDetails", sender: nil)
