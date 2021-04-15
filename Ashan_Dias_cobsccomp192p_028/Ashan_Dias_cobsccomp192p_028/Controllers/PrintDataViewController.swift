@@ -128,15 +128,7 @@ class PrintDataViewController: UIViewController {
     @IBAction func btnPrint(_ sender: Any) {
         
         var markuptext=""
-        
-//        <table>
-//          <tr>
-//            <th>Unit</th>
-//            <th>Name</th>
-//            <th>Price</th>
-//          </tr>
-//        \(markuptext)
-//        </table>
+       
 
         
         for item in ordersItems{
@@ -161,20 +153,20 @@ extension PrintDataViewController:UITableViewDelegate,UITableViewDataSource{
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return ordersItems.count
-//        if ordersItems.count == 0 {
-//            let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
-//                   messageLabel.text = "No records found !"
-//                   messageLabel.textColor = .black
-//                   messageLabel.numberOfLines = 0
-//                   messageLabel.textAlignment = .center
-//                   messageLabel.font = UIFont(name: "TrebuchetMS", size: 15)
-//                   messageLabel.sizeToFit()
-//
-//            tbl_print.backgroundView = messageLabel
-//        }else{
-//            tbl_print.backgroundView = nil
-//        }
-//
+        if ordersItems.count == 0 {
+            let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+                   messageLabel.text = "No records found !"
+                   messageLabel.textColor = .black
+                   messageLabel.numberOfLines = 0
+                   messageLabel.textAlignment = .center
+                   messageLabel.font = UIFont(name: "TrebuchetMS", size: 15)
+                   messageLabel.sizeToFit()
+
+            tbl_print.backgroundView = messageLabel
+        }else{
+            tbl_print.backgroundView = nil
+        }
+
         return ordersItems.count
     }
     
