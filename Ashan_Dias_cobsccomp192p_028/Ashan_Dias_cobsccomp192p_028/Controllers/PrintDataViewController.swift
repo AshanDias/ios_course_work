@@ -105,6 +105,52 @@ class PrintDataViewController: UIViewController {
        
     }
     
+    func printText(text:String){
+            let printInfo = UIPrintInfo(dictionary:nil)
+            printInfo.outputType = UIPrintInfo.OutputType.grayscale
+            printInfo.jobName = "Order Details"
+            printInfo.orientation = .portrait
+
+            let printController = UIPrintInteractionController.shared
+            printController.printInfo = printInfo
+            printController.showsNumberOfCopies = false
+                
+            let formatter = UIMarkupTextPrintFormatter(markupText: text)
+            //formatter.contentInsets = UIEdgeInsets(top: 72, left: 72, bottom: 72, right: 72)
+            printController.printFormatter = formatter
+            
+            printController.present(animated: true, completionHandler: nil)
+        }
+
+
+
+
+    @IBAction func btnPrint(_ sender: Any) {
+        
+        var markuptext=""
+        
+//        <table>
+//          <tr>
+//            <th>Unit</th>
+//            <th>Name</th>
+//            <th>Price</th>
+//          </tr>
+//        \(markuptext)
+//        </table>
+
+        
+        for item in ordersItems{
+            markuptext += "<tr> <td> \(String(item.unit)) </td> <td> \(String(item.name)) </td> <td> \(String(item.price)) </td> </tr>"
+                
+        }
+        
+        var temp="<center><table><tr><th>Unit</th><th>Name</th><th>Price</th></tr>\(markuptext)</table></center>"
+      
+        printText(text: temp)
+        
+    }
+    
+    
   
 
 }

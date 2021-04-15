@@ -632,6 +632,9 @@
                                 <state key="normal" title="Print Order">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnPrint:" destination="8Q1-cz-0Wg" eventType="touchUpInside" id="Caj-1G-8f0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pzj-Gj-UZX"/>
