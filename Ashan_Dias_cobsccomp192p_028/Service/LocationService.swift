@@ -42,13 +42,7 @@ final class LocationService: NSObject {
     }
     
     func calculateDistance(lt:Double,lat:Double) -> Int {
-        
-//        var loc = CLLocation(latitude: lat, longitude: lt)
-//
-//        var res =  Int(location.distance(from: loc))
-//
-//        return res
-        
+
 //        37.785834000000001
 //        -122.406417
        

@@ -141,24 +141,25 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                 group2.wait()
                                 ordersItems.removeAll()
                                 dataChange.forEach({(key,arrayData) in
-    //
                                     var distance =  self.locationSercice.calculateDistance(lt: arrayData["longtude"] as! Double, lat: arrayData["latitude"] as! Double)
+
+                                                                       var st = arrayData["status"] as! Int
+                                                                       
+                                                                       if(distance < 10 && st == 4){
+
+                                                                           var data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as! String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: 5,tel: arrayData["tel"] as! Int,date: arrayData["date"] as! String,longtude: arrayData["longtude"] as! Double, latitude: arrayData["latitude"] as! Double)
+                                                                           ordersItems.append(data)
+
+                                                                       }else{
+
+                                                                           var data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as! String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: arrayData["status"] as! Int,tel: arrayData["tel"] as! Int,date: arrayData["date"] as! String,longtude: arrayData["longtude"] as! Double, latitude: arrayData["latitude"] as! Double)
+                                                                           ordersItems.append(data)
+                                                                       }
                                     
-                                    var st = arrayData["status"] as! Int
-                                    
-                                    if(distance < 10 && st == 4){
-                                        
-                                        var data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as! String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: 5,tel: arrayData["tel"] as! Int,date: arrayData["date"] as! String,longtude: arrayData["longtude"] as! Double, latitude: arrayData["latitude"] as! Double)
-                                        ordersItems.append(data)
-                                  
-                                    }else{
-                                        
-                                        var data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as! String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: arrayData["status"] as! Int,tel: arrayData["tel"] as! Int,date: arrayData["date"] as! String,longtude: arrayData["longtude"] as! Double, latitude: arrayData["latitude"] as! Double)
-                                        ordersItems.append(data)
-                                    }
-                                   
-                                    
-                                   
+
+
+
+
     
                                    
                                 
@@ -174,12 +175,19 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                         if(res==nil){
                                            
                                           
-                                          
-                                            var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
-                                            
-//                                            self.calculateDistance(lt: item.longtude, lat: item.latitude)
-                                            
-                                            self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
+                                        
+                                            var distance =  self.locationSercice.calculateDistance(lt: item.longtude, lat: item.latitude)
+                                                                                      if(distance < 10 && item.status == 4){
+                                                                                          var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: 5,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
+                                                                                          self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
+                                                                                      }
+                                                                                      else{
+                                                                                          var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
+                                                                                          
+                                                                                              self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
+                                                                                          
+                                                                                      }
+
                                             
                                         }
                                     }
@@ -212,11 +220,20 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                         if(res==nil){
                                             
                                          
+                                            var distance =  self.locationSercice.calculateDistance(lt: item.longtude, lat: item.latitude)
+                                              if(distance < 10 && item.status == 4){
+                                                  var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: 5,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
+                                                  self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
+                                              }
+                                              else{
+                                                  var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
+                                                  
+                                                      self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
+                                                  
+                                              }
                                             
-                                            var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
-                                            
-                                            self.calculateDistance(lt: item.longtude, lat: item.latitude)
-                                            self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
+
+
                                         }
                                     }
                                 }else{
