@@ -34,6 +34,8 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.tbl_menu.dataSource=self
         btn_cat.isEnabled=false
         btn_item.isEnabled=false
+        
+        loadData()
     }
     
     func provideImage(index:Int,newImage:UIImage?,indexMain: Int) {
@@ -160,7 +162,7 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
-        loadData()
+//        loadData()
     
     }
     /*

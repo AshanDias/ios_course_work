@@ -35,8 +35,9 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
        
         tbl_orders.delegate=self
         tbl_orders.dataSource=self
-        
+//        tbl_orders.refreshControl?.beginRefreshing()
         refreshData()
+        loadData()
         // Do any additional setup after loading the view.
     }
     
@@ -208,7 +209,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadData()
+//        loadData()
     }
     
     
@@ -223,31 +224,30 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
        
         return grouporders[section].orders.count ?? 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
-      
+       
         let cell=tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath) as! OrderTableViewCell
+        
+
         
        
         if(grouporders.count > 0){
             cell.setupView(order: grouporders[indexPath.section].orders[indexPath.row])
-           
         }
-//        tableView.delegate =  self
-      
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//
-//        currentIndex = ordersItems[indexPath[0]].ord_id
-//
-//        //    performSegue(withIdentifier: "orderDetails", sender: nil)
-//
-//
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+
+        currentIndex =  grouporders[indexPath.section].orders[indexPath.row].ord_id
+
+            performSegue(withIdentifier: "orderDetails", sender: nil)
+
+
+    }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
