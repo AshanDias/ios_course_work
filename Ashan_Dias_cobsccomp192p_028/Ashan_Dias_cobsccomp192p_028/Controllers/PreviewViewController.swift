@@ -14,6 +14,7 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     private let database = Database.database().reference()
     let imageStore = Storage.storage()
+    var refreshControl: UIRefreshControl?
     var menuItem: [MenuItem] = [
       
    ]
@@ -35,6 +36,7 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
         btn_cat.isEnabled=false
         btn_item.isEnabled=false
         
+        refreshData()
         loadData()
     }
     
@@ -85,7 +87,15 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
         performSegue(withIdentifier: "menu_nav", sender: nil)
     }
     
-    func loadData(){
+    func refreshData(){
+        refreshControl = UIRefreshControl()
+               refreshControl?.tintColor = UIColor.red
+        refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
+               tbl_menu.addSubview(refreshControl!)
+       
+    }
+    
+ @objc   func loadData(){
        
         menuItem.removeAll()
         groupMenuItems.removeAll()
@@ -145,6 +155,7 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
              
                 self.tbl_menu.reloadData()
+                self.refreshControl?.endRefreshing()
                 btn_cat.isEnabled=true
                 btn_item.isEnabled=true
                }
