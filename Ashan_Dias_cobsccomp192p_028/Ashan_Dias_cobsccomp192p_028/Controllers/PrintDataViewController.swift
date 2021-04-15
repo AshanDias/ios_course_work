@@ -58,11 +58,18 @@ class PrintDataViewController: UIViewController {
             group.notify(queue: .main) { [self] in
                 
                  tbl_print.reloadData()
-            
-//                refreshControl?.endRefreshing()
-//                print(ordersItems)
+                    setValue()
+                
             }
         }
+    }
+    
+    func setValue(){
+        var total=0.00
+        for itm in ordersItems{
+            total += itm.price
+        }
+        lbl_value.text = String(total)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,7 +108,7 @@ class PrintDataViewController: UIViewController {
         
         
         tbl_print.reloadData()
-        
+        setValue()
        
     }
     
