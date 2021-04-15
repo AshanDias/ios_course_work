@@ -18,7 +18,7 @@ enum Result<T> {
 
 final class LocationService: NSObject {
     private let manager: CLLocationManager
-    private let location = CLLocation.init()
+    
     init(manager: CLLocationManager = .init()) {
         self.manager = manager
         super.init()
@@ -29,8 +29,7 @@ final class LocationService: NSObject {
         manager.distanceFilter = kCLDistanceFilterNone
         manager.requestAlwaysAuthorization()
         manager.requestWhenInUseAuthorization()
-        manager.stopUpdatingLocation()     // request will restart it
-       // manager.allowsBackgroundLocationUpdates = true
+        manager.stopUpdatingLocation()
     }
  
     
@@ -43,11 +42,11 @@ final class LocationService: NSObject {
     
     func calculateDistance(lt:Double,lat:Double) -> Int {
 
-//        37.785834000000001
+//
 //        -122.406417
-       
-        var lat1 = (manager.location?.coordinate.latitude)!
-        var logt1 = (manager.location?.coordinate.longitude)!
+//        37.78583400001
+        var lat1 =  37.78583400001
+        var logt1 = -122.406417
         
         let coordinate1 = CLLocation(latitude: lat, longitude: lt)
         let coordinate2 = CLLocation(latitude: lat1, longitude:logt1)

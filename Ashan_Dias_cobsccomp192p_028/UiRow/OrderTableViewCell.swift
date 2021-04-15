@@ -68,6 +68,10 @@ class OrderTableViewCell: UITableViewCell {
             btn_a_s.setTitle("Rejected", for: .normal)
             btn_a_s.backgroundColor = .purple
             break
+        case 5:
+            btn_rj.isHidden=true
+            btn_a_s.backgroundColor = .orange
+            btn_a_s.setTitle("Arriving", for: .normal)
         default:
             break
         }

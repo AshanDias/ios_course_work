@@ -199,14 +199,13 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                     groupByOrders.forEach({(key,val) in
                                    
                                         
-//                                        self.grouporders.append(GroupOrders.init(status: key, orders: val))
+                                        self.grouporders.append(GroupOrders.init(status: key, orders: val))
                                     })
                                    
                                    // cache.setObject(grouporders as NSArray, forKey: "grouporders")
                                        
                                     
                                    
-                                        self.tbl_orders.reloadData()
                                         self.tbl_orders.reloadData()
                                    // refreshControl?.endRefreshing()
                                 }
@@ -249,7 +248,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                         
                         self.tbl_orders.reloadData()
                         refreshControl?.endRefreshing()
-                        print("aaaaaaaa",ordersItems)
+                        
                     }
                    
                 }
