@@ -18,7 +18,8 @@ struct  OrderDetails {
     var randNo:Int!
     var tel:Int!
     var date:String!
-    
+    var longtude:Double!
+    var latitude:Double!
     func getJSON() -> NSMutableDictionary {
            let dict = NSMutableDictionary()
            dict.setValue(unit, forKey: "unit")
@@ -30,6 +31,8 @@ struct  OrderDetails {
             dict.setValue(randNo, forKey: "randNo")
             dict.setValue(tel, forKey: "tel")
             dict.setValue(date, forKey: "date")
+            dict.setValue(longtude, forKey: "longtude")
+            dict.setValue(latitude, forKey: "latitude")
            return dict
        }
 }

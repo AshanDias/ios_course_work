@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		319ABF0C821D3727C6D86358 /* Pods_Ashan_Dias_cobsccomp192p_028_Ashan_Dias_cobsccomp192p_028UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC168F62951DE55B36B9E4E /* Pods_Ashan_Dias_cobsccomp192p_028_Ashan_Dias_cobsccomp192p_028UITests.framework */; };
+		9835C90F262887D60078D217 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9835C90E262887D60078D217 /* LocationService.swift */; };
 		9897565F261C675300126288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897565E261C675300126288 /* AppDelegate.swift */; };
 		98975661261C675300126288 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98975660261C675300126288 /* SceneDelegate.swift */; };
 		98975663261C675300126288 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98975662261C675300126288 /* LoginViewController.swift */; };
@@ -66,6 +67,7 @@
 /* Begin PBXFileReference section */
 		182C6E5BE8C79A168ED5F7D8 /* Pods-Ashan_Dias_cobsccomp192p_028Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ashan_Dias_cobsccomp192p_028Tests.release.xcconfig"; path = "Target Support Files/Pods-Ashan_Dias_cobsccomp192p_028Tests/Pods-Ashan_Dias_cobsccomp192p_028Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3746F6C9F78BCC731D5C9DD7 /* Pods_Ashan_Dias_cobsccomp192p_028.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ashan_Dias_cobsccomp192p_028.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9835C90E262887D60078D217 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		9897565B261C675300126288 /* Ashan_Dias_cobsccomp192p_028.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ashan_Dias_cobsccomp192p_028.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9897565E261C675300126288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98975660261C675300126288 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,9 +145,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9835C90D262887C70078D217 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9835C90E262887D60078D217 /* LocationService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		98975652261C675300126288 = {
 			isa = PBXGroup;
 			children = (
+				9835C90D262887C70078D217 /* Service */,
 				98FB9AF82622F91F00907107 /* Model */,
 				98FB9AED2622E38800907107 /* UiRow */,
 				989756AE261D8DBE00126288 /* UIHelpers */,
@@ -540,6 +551,7 @@
 				98975663261C675300126288 /* LoginViewController.swift in Sources */,
 				98EEA66F2626A211001048A7 /* PrintDataViewController.swift in Sources */,
 				9897565F261C675300126288 /* AppDelegate.swift in Sources */,
+				9835C90F262887D60078D217 /* LocationService.swift in Sources */,
 				989756C4261D98F700126288 /* ForgetPasswordViewController.swift in Sources */,
 				98975661261C675300126288 /* SceneDelegate.swift in Sources */,
 				98EEA5742624432D001048A7 /* Orders.swift in Sources */,

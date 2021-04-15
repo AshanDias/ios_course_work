@@ -7,7 +7,7 @@
 
 import UIKit
 import Firebase
-
+import CoreLocation
 var currentIndex=""
 var orders: [OrderDetails] = [
   
@@ -19,6 +19,8 @@ let cache = NSCache<NSString, NSArray>()
 
 class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     private let database = Database.database().reference()
+    
+   var locationSercice=LocationService()
     var refreshControl: UIRefreshControl?
   
     var grouporders: [GroupOrders] = [
@@ -38,8 +40,24 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
 //        tbl_orders.refreshControl?.beginRefreshing()
         refreshData()
         loadData()
+        getLocation()
+        
         // Do any additional setup after loading the view.
     }
+    
+    
+    func calculateDistance(lt:Double,lat:Double) {
+        
+        let distance = CLLocation(latitude: lat, longitude: lt)
+                         print("distance \(distance)")
+//                         if distance <= 10{
+//                            orderToBeUpadated!.status += 1
+//
+//                         }
+      
+//        return distance
+    }
+
     
    
     func refreshData(){
@@ -89,9 +107,9 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                 var price = arrayData["price"] as! String
                                     var priceVal = Double(price) as! Double
                                
-                                var cart = OrderDetails(unit: arrayData["unit"] as! Int, price: priceVal , name: arrayData["item"] as! String, cusName: username, ord_id: orderId as! String, status: arrayData["status"] as! Int,tel: arrayData["tel"] as! Int,date: arrayData["date"] as! String)
+                                var cart = OrderDetails(unit: arrayData["unit"] as! Int, price: priceVal , name: arrayData["item"] as! String, cusName: username, ord_id: orderId as! String, status: arrayData["status"] as! Int,tel: arrayData["tel"] as! Int,date: arrayData["date"] as! String,longtude: arrayData["longtude"] as! Double, latitude: arrayData["latitude"] as! Double)
                                 
-                                
+                           
                                 orders.append(cart)
                                 
                                
@@ -124,12 +142,26 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                 ordersItems.removeAll()
                                 dataChange.forEach({(key,arrayData) in
     //
-                                    var data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as! String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: arrayData["status"] as! Int,tel: arrayData["tel"] as! Int,date: arrayData["date"] as! String)
+                                    var distance =  self.locationSercice.calculateDistance(lt: arrayData["longtude"] as! Double, lat: arrayData["latitude"] as! Double)
                                     
-                                    ordersItems.append(data)
-    //
-                                   
+                                    var st = arrayData["status"] as! Int
+                                    
+                                    if(distance < 10 && st == 4){
+                                        
+                                        var data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as! String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: 5,tel: arrayData["tel"] as! Int,date: arrayData["date"] as! String,longtude: arrayData["longtude"] as! Double, latitude: arrayData["latitude"] as! Double)
+                                        ordersItems.append(data)
                                   
+                                    }else{
+                                        
+                                        var data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as! String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: arrayData["status"] as! Int,tel: arrayData["tel"] as! Int,date: arrayData["date"] as! String,longtude: arrayData["longtude"] as! Double, latitude: arrayData["latitude"] as! Double)
+                                        ordersItems.append(data)
+                                    }
+                                   
+                                    
+                                   
+    
+                                   
+                                
                                 })
                                 
                                 group2.notify(queue: .main){ [self] in
@@ -143,9 +175,10 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                            
                                           
                                           
-                                            var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel,date: formatter1.string(from: today))
+                                            var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
                                             
-                                           
+//                                            self.calculateDistance(lt: item.longtude, lat: item.latitude)
+                                            
                                             self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
                                             
                                         }
@@ -158,7 +191,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                     groupByOrders.forEach({(key,val) in
                                    
                                         
-                                        self.grouporders.append(GroupOrders.init(status: key, orders: val))
+//                                        self.grouporders.append(GroupOrders.init(status: key, orders: val))
                                     })
                                    
                                    // cache.setObject(grouporders as NSArray, forKey: "grouporders")
@@ -180,9 +213,9 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                             
                                          
                                             
-                                            var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel,date: formatter1.string(from: today))
+                                            var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
                                             
-                                           
+                                            self.calculateDistance(lt: item.longtude, lat: item.latitude)
                                             self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
                                         }
                                     }
@@ -199,7 +232,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                         
                         self.tbl_orders.reloadData()
                         refreshControl?.endRefreshing()
-                        
+                        print("aaaaaaaa",ordersItems)
                     }
                    
                 }
@@ -267,11 +300,19 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
         }
         else if(status == 10){
             return "Cancelled"
+        }else if(status == 5){
+            return "Arriving"
         }
         else {
             return ""
         }
        
+    }
+    
+    
+    func getLocation(){
+        
+        var location = locationSercice.requestLocationAuthrization()
     }
     
     
