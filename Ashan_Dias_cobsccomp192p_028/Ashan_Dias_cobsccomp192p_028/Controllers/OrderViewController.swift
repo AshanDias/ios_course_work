@@ -21,6 +21,7 @@ let cache = NSCache<NSString, NSArray>()
 
 class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     private let database = Database.database().reference()
+
     var player: AVAudioPlayer?
    var locationSercice=LocationService()
     var refreshControl: UIRefreshControl?
@@ -106,7 +107,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
             self.database.child("Orders").getData { (error, snapshot) in
                  if snapshot.exists() {
                     
-                    var dataChange = snapshot.value as! [String:AnyObject]
+                    let dataChange = snapshot.value as! [String:AnyObject]
                   
                     
                   
@@ -116,21 +117,21 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                   
                     dataChange.values.forEach({(index) in
                         
-                        var values=index as! NSArray
+                        let values=index as! NSArray
                         
                         
                         values.forEach({(nskey) in
                             if(i != 0){
-                                var arrayData=Array(arrayLiteral: nskey)[0] as! [String:AnyObject]
+                                let arrayData=Array(arrayLiteral: nskey)[0] as! [String:AnyObject]
                                
                                 var username=arrayData["userName"] as! String
 
                                 username=username.replacingOccurrences(of: ",", with: ".")
-                               var orderId="orderRefx0\(ord_id)"
-                                var price = arrayData["price"] as! String
-                                    var priceVal = Double(price) as! Double
+                                let orderId="orderRefx0\(ord_id)"
+                                let price = arrayData["price"] as! String
+                                let priceVal = Double(price)!
                                
-                                var cart = OrderDetails(unit: arrayData["unit"] as! Int, price: priceVal , name: arrayData["item"] as! String, cusName: username, ord_id: orderId as! String, status: arrayData["status"] as! Int,tel: arrayData["tel"] as! Int,date: arrayData["date"] as! String,longtude: arrayData["longtude"] as! Double, latitude: arrayData["latitude"] as! Double)
+                                let cart = OrderDetails(unit: arrayData["unit"] as! Int, price: priceVal , name: arrayData["item"] as? String, cusName: username, ord_id: orderId , status: arrayData["status"] as? Int,tel: arrayData["tel"] as? Int,date: arrayData["date"] as? String,longtude: arrayData["longtude"] as? Double, latitude: arrayData["latitude"] as? Double)
                                 
                            
                                 orders.append(cart)
@@ -164,19 +165,21 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                 group2.wait()
                                 ordersItems.removeAll()
                                 dataChange.forEach({(key,arrayData) in
-                                    var distance =  self.locationSercice.calculateDistance(lt: arrayData["longtude"] as! Double, lat: arrayData["latitude"] as! Double)
+                                    let distance =  self.locationSercice.calculateDistance(lt: arrayData["longtude"] as! Double, lat: arrayData["latitude"] as! Double)
+                                    
+                                    
 
                                                         let st = arrayData["status"] as! Int
                                                                        
                                                                        if(distance < 10 && st == 4){
 
-                                                                           var data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as! String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: 5,tel: arrayData["tel"] as! Int,date: arrayData["date"] as! String,longtude: arrayData["longtude"] as! Double, latitude: arrayData["latitude"] as! Double)
+                                                                        let data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as? String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: 5,tel: arrayData["tel"] as? Int,date: arrayData["date"] as? String,longtude: arrayData["longtude"] as? Double, latitude: arrayData["latitude"] as? Double)
                                                                            ordersItems.append(data)
                                                                         playSound()
 
                                                                        }else{
 
-                                                                           var data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as! String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: arrayData["status"] as! Int,tel: arrayData["tel"] as! Int,date: arrayData["date"] as! String,longtude: arrayData["longtude"] as! Double, latitude: arrayData["latitude"] as! Double)
+                                                                        let data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as? String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: arrayData["status"] as? Int,tel: arrayData["tel"] as? Int,date: arrayData["date"] as? String,longtude: arrayData["longtude"] as? Double, latitude: arrayData["latitude"] as? Double)
                                                                            ordersItems.append(data)
                                                                        }
                                     
@@ -194,21 +197,21 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
     //                                cartItems.first(where:{ $0.item == lbl_item.text})
                                     for item in orders{
                                         
-                                        var res = ordersItems.first(where: {$0.ord_id == item.ord_id})?.ord_id
+                                        let res = ordersItems.first(where: {$0.ord_id == item.ord_id})?.ord_id
                                        
                                         if(res==nil){
                                            
                                           
                                         
-                                            var distance =  self.locationSercice.calculateDistance(lt: item.longtude, lat: item.latitude)
+                                            let distance =  self.locationSercice.calculateDistance(lt: item.longtude, lat: item.latitude)
                                                                                       if(distance < 10 && item.status == 4){
-                                                                                          var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: 5,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
+                                                                                        let orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: 5,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
                                                                                           self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
                                                                                         
                                                                                         playSound()
                                                                                       }
                                                                                       else{
-                                                                                          var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
+                                                                                        let orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
                                                                                           
                                                                                               self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
                                                                                           
@@ -218,7 +221,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                         }
                                     }
                                    
-                                    var groupByOrders = Dictionary(grouping: ordersItems) { (items) -> Int in
+                                    let groupByOrders = Dictionary(grouping: ordersItems) { (items) -> Int in
                                         return items.status
                                     }
                                     
@@ -238,31 +241,35 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                 
                             }else{
                                 if(orders.count > 0){
+                                    
+                                    
                                     for item in orders{
                                         
-                                        var res = ordersItems.first(where: {$0.ord_id == item.ord_id})?.ord_id
+                                        let res = ordersItems.first(where: {$0.ord_id == item.ord_id})?.ord_id
                                        
                                         if(res==nil){
                                             
                                          
-                                            var distance =  self.locationSercice.calculateDistance(lt: item.longtude, lat: item.latitude)
+                                            let distance =  self.locationSercice.calculateDistance(lt: item.longtude, lat: item.latitude)
                                               if(distance < 10 && item.status == 4){
-                                                  var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: 5,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
+                                                let orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: 5,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
                                                   self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
                                                 
                                                 playSound()
                                               }
                                               else{
-                                                  var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
+                                                let orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
                                                   
                                                       self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
                                                   
                                               }
                                             
-
+                                           
 
                                         }
                                     }
+                                    
+                                   
                                 }else{
                                     ordersItems.removeAll()
                                   
@@ -299,7 +306,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
        
-        return grouporders[section].orders.count ?? 0
+        return grouporders[section].orders.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
