@@ -24,6 +24,10 @@ final class LocationService: NSObject {
         super.init()
         
         manager.delegate = self
+        manager.distanceFilter = kCLDistanceFilterNone
+              manager.requestAlwaysAuthorization()
+              manager.requestWhenInUseAuthorization()
+              manager.stopUpdatingLocation()
     
     }
  
@@ -44,6 +48,8 @@ final class LocationService: NSObject {
 //        37.78583400001
 //        var lat1 =  37.78583400001
 //        var logt1 = -122.406417
+        
+      
         
         var longt = Double((manager.location?.coordinate.longitude)!)
         var lattude = Double((manager.location?.coordinate.latitude)!)
