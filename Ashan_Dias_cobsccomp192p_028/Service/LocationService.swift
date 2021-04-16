@@ -28,6 +28,12 @@ final class LocationService: NSObject {
               manager.requestAlwaysAuthorization()
               manager.requestWhenInUseAuthorization()
               manager.stopUpdatingLocation()
+        
+        
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestAlwaysAuthorization()
+        manager.startUpdatingLocation()
     
     }
  
@@ -40,19 +46,17 @@ final class LocationService: NSObject {
     }
     
     func calculateDistance(lt:Double,lat:Double) -> Int {
+     
+        manager.requestAlwaysAuthorization()
+        manager.requestWhenInUseAuthorization()
+        manager.requestLocation()
 
+//        let longt = Double((manager.location?.coordinate.longitude)!)
+//        let lattude = Double((manager.location?.coordinate.latitude)!)
         
+        let longt = Double(37.59452644)
+        let lattude = Double(-122.41234263)
         
-//
-//        -122.406417
-//        37.78583400001
-//        var lat1 =  37.78583400001
-//        var logt1 = -122.406417
-        
-      
-        
-        var longt = Double((manager.location?.coordinate.longitude)!)
-        var lattude = Double((manager.location?.coordinate.latitude)!)
         
         let coordinate1 = CLLocation(latitude: lat, longitude: lt)
         let coordinate2 = CLLocation(latitude: lattude, longitude:longt)

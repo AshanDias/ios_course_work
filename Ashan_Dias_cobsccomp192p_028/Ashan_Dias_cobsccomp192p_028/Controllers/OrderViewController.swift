@@ -8,6 +8,8 @@
 import UIKit
 import Firebase
 import CoreLocation
+import AVFoundation
+
 var currentIndex=""
 var orders: [OrderDetails] = [
   
@@ -19,7 +21,7 @@ let cache = NSCache<NSString, NSArray>()
 
 class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     private let database = Database.database().reference()
-    
+    var player: AVAudioPlayer?
    var locationSercice=LocationService()
     var refreshControl: UIRefreshControl?
   
@@ -37,14 +39,35 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
        
         tbl_orders.delegate=self
         tbl_orders.dataSource=self
+    
 //        tbl_orders.refreshControl?.beginRefreshing()
         refreshData()
         loadData()
         getLocation()
-        
+      
         // Do any additional setup after loading the view.
     }
     
+    
+    func playSound() {
+            let pathToSound = Bundle.main.path(forResource: "notification", ofType: "mp3")!
+            let url = URL(fileURLWithPath: pathToSound)
+            do {
+               // try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                //try AVAudioSession.sharedInstance().setActive(true)
+                /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+               // let player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+                /* iOS 10 and earlier require the following line:*/
+               
+                player = try AVAudioPlayer(contentsOf: url)
+                player!.play()
+                
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }
+
+
     
     func calculateDistance(lt:Double,lat:Double) {
         
@@ -137,18 +160,19 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                         let group2 = DispatchGroup()
                         self.database.child("OrderItems").getData { (error, snapshot) in
                             if snapshot.exists() {
-                                var dataChange = snapshot.value as! [String:AnyObject]
+                                let dataChange = snapshot.value as! [String:AnyObject]
                                 group2.wait()
                                 ordersItems.removeAll()
                                 dataChange.forEach({(key,arrayData) in
                                     var distance =  self.locationSercice.calculateDistance(lt: arrayData["longtude"] as! Double, lat: arrayData["latitude"] as! Double)
 
-                                                                       var st = arrayData["status"] as! Int
+                                                        let st = arrayData["status"] as! Int
                                                                        
                                                                        if(distance < 10 && st == 4){
 
                                                                            var data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as! String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: 5,tel: arrayData["tel"] as! Int,date: arrayData["date"] as! String,longtude: arrayData["longtude"] as! Double, latitude: arrayData["latitude"] as! Double)
                                                                            ordersItems.append(data)
+                                                                        playSound()
 
                                                                        }else{
 
@@ -180,6 +204,8 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                                                                       if(distance < 10 && item.status == 4){
                                                                                           var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: 5,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
                                                                                           self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
+                                                                                        
+                                                                                        playSound()
                                                                                       }
                                                                                       else{
                                                                                           var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
@@ -223,6 +249,8 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                               if(distance < 10 && item.status == 4){
                                                   var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: 5,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
                                                   self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
+                                                
+                                                playSound()
                                               }
                                               else{
                                                   var orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: item.status,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)

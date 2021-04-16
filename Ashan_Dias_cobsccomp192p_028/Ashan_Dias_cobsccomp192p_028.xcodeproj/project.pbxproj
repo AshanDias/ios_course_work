@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		319ABF0C821D3727C6D86358 /* Pods_Ashan_Dias_cobsccomp192p_028_Ashan_Dias_cobsccomp192p_028UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC168F62951DE55B36B9E4E /* Pods_Ashan_Dias_cobsccomp192p_028_Ashan_Dias_cobsccomp192p_028UITests.framework */; };
+		98263D282629696300599C42 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98263D272629696300599C42 /* notification.mp3 */; };
 		9835C90F262887D60078D217 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9835C90E262887D60078D217 /* LocationService.swift */; };
 		9897565F261C675300126288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897565E261C675300126288 /* AppDelegate.swift */; };
 		98975661261C675300126288 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98975660261C675300126288 /* SceneDelegate.swift */; };
@@ -67,6 +68,7 @@
 /* Begin PBXFileReference section */
 		182C6E5BE8C79A168ED5F7D8 /* Pods-Ashan_Dias_cobsccomp192p_028Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ashan_Dias_cobsccomp192p_028Tests.release.xcconfig"; path = "Target Support Files/Pods-Ashan_Dias_cobsccomp192p_028Tests/Pods-Ashan_Dias_cobsccomp192p_028Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3746F6C9F78BCC731D5C9DD7 /* Pods_Ashan_Dias_cobsccomp192p_028.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ashan_Dias_cobsccomp192p_028.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98263D272629696300599C42 /* notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = notification.mp3; sourceTree = "<group>"; };
 		9835C90E262887D60078D217 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		9897565B261C675300126288 /* Ashan_Dias_cobsccomp192p_028.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ashan_Dias_cobsccomp192p_028.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9897565E261C675300126288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				98975669261C675400126288 /* LaunchScreen.storyboard */,
 				9897566C261C675400126288 /* Info.plist */,
 				98FB9AE82622DE0E00907107 /* GoogleService-Info.plist */,
+				98263D272629696300599C42 /* notification.mp3 */,
 			);
 			path = Ashan_Dias_cobsccomp192p_028;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				98EEA56F26242D58001048A7 /* OrderTableViewCell.xib in Resources */,
 				98EEA56326233E51001048A7 /* PreviewTableViewCell.xib in Resources */,
 				989756A7261C775800126288 /* logo.png in Resources */,
+				98263D282629696300599C42 /* notification.mp3 in Resources */,
 				98EEA66A262697AF001048A7 /* PrintTableViewCell.xib in Resources */,
 				9897566B261C675400126288 /* LaunchScreen.storyboard in Resources */,
 				98975668261C675400126288 /* Assets.xcassets in Resources */,
