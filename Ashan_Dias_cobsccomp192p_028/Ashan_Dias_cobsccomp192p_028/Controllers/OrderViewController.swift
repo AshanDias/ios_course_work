@@ -19,21 +19,33 @@ var ordersItems: [OrderDetails] = [
 ]
 let cache = NSCache<NSString, NSArray>()
 
-class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
+class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate{
     private let database = Database.database().reference()
 
+    let locationManager = CLLocationManager()
     var player: AVAudioPlayer?
-   var locationSercice=LocationService()
+//   var locationSercice=LocationService()
     var refreshControl: UIRefreshControl?
   
     var grouporders: [GroupOrders] = [
     
     ]
+    
+    var lt=0.00
+    var lat=0.00
     @IBOutlet weak var tbl_orders:UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.requestAlwaysAuthorization()
+               locationManager.requestWhenInUseAuthorization()
+               if CLLocationManager.locationServicesEnabled() {
+                   locationManager.delegate = self
+                locationManager.desiredAccuracy = 1
+                   locationManager.startUpdatingLocation()
+               }
         
         let nib=UINib(nibName: "OrderTableViewCell", bundle: nil)
         tbl_orders.register(nib, forCellReuseIdentifier: "OrderTableViewCell")
@@ -44,10 +56,21 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
 //        tbl_orders.refreshControl?.beginRefreshing()
         refreshData()
         loadData()
-        getLocation()
+       
       
         // Do any additional setup after loading the view.
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+            print("locations = \(locValue.latitude) \(locValue.longitude)")
+        self.lt=0.00
+        self.lat=0.00
+        self.lt=locValue.longitude
+        self.lat=locValue.latitude
+        }
+    
+    
     
     
     func playSound() {
@@ -70,16 +93,19 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
 
 
     
-    func calculateDistance(lt:Double,lat:Double) {
+    func calculateDistance(lt:Double,lat:Double) -> Int{
+     
+        let longt = Double(self.lt)
+        let lattude = Double(self.lat)
         
-        let distance = CLLocation(latitude: lat, longitude: lt)
-                         print("distance \(distance)")
-//                         if distance <= 10{
-//                            orderToBeUpadated!.status += 1
-//
-//                         }
-      
-//        return distance
+//        let longt1 = Double(37.59452644)
+//        let lattude1 = Double(-122.41234263)
+        
+        
+        let coordinate1 = CLLocation(latitude: lat, longitude: lt)
+        let coordinate2 = CLLocation(latitude: lattude, longitude:longt)
+        let distanceInMeters = coordinate2.distance(from: coordinate1)/1000
+        return Int(distanceInMeters)
     }
 
     
@@ -165,13 +191,13 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                 group2.wait()
                                 ordersItems.removeAll()
                                 dataChange.forEach({(key,arrayData) in
-                                    let distance =  self.locationSercice.calculateDistance(lt: arrayData["longtude"] as! Double, lat: arrayData["latitude"] as! Double)
+                                    let distance =  calculateDistance(lt: arrayData["longtude"] as! Double, lat: arrayData["latitude"] as! Double)
                                     
                                     
 
                                                         let st = arrayData["status"] as! Int
                                                                        
-                                                                       if(distance < 10 && st == 4){
+                                                                       if(distance < 4 && st == 4){
 
                                                                         let data=OrderDetails(unit: arrayData["unit"] as! Int, price: arrayData["price"] as! Double , name: arrayData["name"] as? String, cusName: arrayData["cusName"] as! String, ord_id: arrayData["ord_id"] as! String, status: 5,tel: arrayData["tel"] as? Int,date: arrayData["date"] as? String,longtude: arrayData["longtude"] as? Double, latitude: arrayData["latitude"] as? Double)
                                                                            ordersItems.append(data)
@@ -203,8 +229,8 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                            
                                           
                                         
-                                            let distance =  self.locationSercice.calculateDistance(lt: item.longtude, lat: item.latitude)
-                                                                                      if(distance < 10 && item.status == 4){
+                                            let distance =  calculateDistance(lt: item.longtude, lat: item.latitude)
+                                                                                      if(distance < 4 && item.status == 4){
                                                                                         let orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: 5,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
                                                                                           self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
                                                                                         
@@ -250,8 +276,8 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
                                         if(res==nil){
                                             
                                          
-                                            let distance =  self.locationSercice.calculateDistance(lt: item.longtude, lat: item.latitude)
-                                              if(distance < 10 && item.status == 4){
+                                            let distance = calculateDistance(lt: item.longtude, lat: item.latitude)
+                                              if(distance < 4 && item.status == 4){
                                                 let orderData = OrderDetails(unit: item.unit, price: item.price, name: item.name, cusName: item.cusName, ord_id: item.ord_id, status: 5,tel: item.tel,date: formatter1.string(from: today),longtude: item.longtude,latitude: item.latitude)
                                                   self.database.child("OrderItems").child(String(item.ord_id)).setValue(orderData.getJSON())
                                                 
@@ -361,10 +387,7 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
     }
     
     
-    func getLocation(){
-        
-        var location = locationSercice.requestLocationAuthrization()
-    }
+   
     
     
   

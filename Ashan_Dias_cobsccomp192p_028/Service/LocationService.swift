@@ -26,14 +26,9 @@ final class LocationService: NSObject {
         manager.delegate = self
         manager.distanceFilter = kCLDistanceFilterNone
               manager.requestAlwaysAuthorization()
-              manager.requestWhenInUseAuthorization()
-              manager.stopUpdatingLocation()
+              manager.startUpdatingLocation()
         
-        
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestAlwaysAuthorization()
-        manager.startUpdatingLocation()
+                manager.stopUpdatingLocation()
     
     }
  
@@ -41,9 +36,9 @@ final class LocationService: NSObject {
     var newLocation: ((Result<CLLocation>) -> Void)?
     var didChangeStatus: ((Bool) -> Void)?
     
-    var status: CLAuthorizationStatus {
-        return CLLocationManager.authorizationStatus()
-    }
+//    var status: CLAuthorizationStatus {
+//        return CLLocationManager.authorizationStatus()
+//    }
     
     func calculateDistance(lt:Double,lat:Double) -> Int {
      
@@ -51,16 +46,16 @@ final class LocationService: NSObject {
         manager.requestWhenInUseAuthorization()
         manager.requestLocation()
 
-//        let longt = Double((manager.location?.coordinate.longitude)!)
-//        let lattude = Double((manager.location?.coordinate.latitude)!)
+        let longt = Double((manager.location?.coordinate.longitude)!)
+        let lattude = Double((manager.location?.coordinate.latitude)!)
         
-        let longt = Double(37.59452644)
-        let lattude = Double(-122.41234263)
+//        let longt1 = Double(37.59452644)
+//        let lattude1 = Double(-122.41234263)
         
         
         let coordinate1 = CLLocation(latitude: lat, longitude: lt)
         let coordinate2 = CLLocation(latitude: lattude, longitude:longt)
-        let distanceInMeters = coordinate2.distance(from: coordinate1)
+        let distanceInMeters = coordinate2.distance(from: coordinate1)/1000
         
         return Int(distanceInMeters)
     }
