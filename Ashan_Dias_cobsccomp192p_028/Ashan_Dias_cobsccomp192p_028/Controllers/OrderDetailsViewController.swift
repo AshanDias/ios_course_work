@@ -29,6 +29,7 @@ class OrderDetailsViewController: UIViewController {
         lbl_price.text = String(orderResult.price)
         lbl_cusname.text = orderResult.cusName
         lbl_ordId.text = orderResult.ord_id
+        
         switch Int(orderResult.status) {
         case 1:
            
@@ -52,6 +53,9 @@ class OrderDetailsViewController: UIViewController {
             btn_status.setTitle("Rejected", for: .normal)
             btn_status.backgroundColor = .purple
             break
+        case 5:
+            btn_status.setTitle("Arriving", for: .normal)
+            btn_status.backgroundColor = .orange
         default:
             break
         }
