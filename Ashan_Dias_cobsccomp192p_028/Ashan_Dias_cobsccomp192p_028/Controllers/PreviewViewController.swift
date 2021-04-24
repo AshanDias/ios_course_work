@@ -13,6 +13,7 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     
     private let database = Database.database().reference()
+    let auth = Auth.auth()
     let imageStore = Storage.storage()
     var refreshControl: UIRefreshControl?
     var menuItem: [MenuItem] = [
@@ -175,6 +176,11 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
         navigationController?.setNavigationBarHidden(true, animated: animated)
 //        loadData()
     
+    }
+    @IBAction func btnLogout(_ sender: Any) {
+        do { try Auth.auth().signOut() }
+          catch { print("already logged out") }
+        self.tabBarController?.performSegue(withIdentifier: "logout", sender: self.tabBarController)
     }
     /*
     // MARK: - Navigation
