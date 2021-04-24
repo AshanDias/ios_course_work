@@ -379,6 +379,8 @@ class OrderViewController: UIViewController ,UITableViewDelegate,UITableViewData
             return "Cancelled"
         }else if(status == 5){
             return "Arriving"
+        }else if(status == 6){
+            return "Done"
         }
         else {
             return ""

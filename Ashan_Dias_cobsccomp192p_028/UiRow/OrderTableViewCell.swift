@@ -72,6 +72,10 @@ class OrderTableViewCell: UITableViewCell {
             btn_rj.isHidden=true
             btn_a_s.backgroundColor = .orange
             btn_a_s.setTitle("Arriving", for: .normal)
+        case 6:
+            btn_rj.isHidden=true
+            btn_a_s.backgroundColor = .systemGreen
+            btn_a_s.setTitle("Done", for: .normal)
         default:
             break
         }
@@ -100,7 +104,9 @@ class OrderTableViewCell: UITableViewCell {
         case 2:
             ordRes.status = 4 //4 is ready status
             break
-            
+        case 5:
+            ordRes.status = 6 //4 is ready status
+            break
         default:
             break
         }
