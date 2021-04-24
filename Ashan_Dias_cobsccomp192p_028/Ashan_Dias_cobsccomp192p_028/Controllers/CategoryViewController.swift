@@ -34,17 +34,36 @@ class CategoryViewController: UIViewController {
         
     }
     
+    func displayAlert(){
+        let alert = UIAlertController(title: "Error", message: "Name Cannot Be Empty", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func AddCategory(_ sender: Any) {
       
         
             let cat=Category(name: txt_name.text)
-          //  catItems.append(cat)
-            let child=UUID().uuidString
-            self.database.child("Category").child(child).setValue(txt_name.text)
-            //self.tbl_category.reloadData()
+        if let title = txt_name.text {
+            if title.isEmpty {
+                displayAlert()
+            }else{
+                
+                catItems.append(cat)
+                let child=UUID().uuidString
+                self.database.child("Category").child(child).setValue(txt_name.text)
+                self.tbl_category.reloadData()
+                
+            }
+                   
+        }
+     
+//            catItems.append(cat)
+//            let child=UUID().uuidString
+//            self.database.child("Category").child(child).setValue(txt_name.text)
+//            self.tbl_category.reloadData()
         
-       loadData()
+     //  loadData()
         
     }
     
