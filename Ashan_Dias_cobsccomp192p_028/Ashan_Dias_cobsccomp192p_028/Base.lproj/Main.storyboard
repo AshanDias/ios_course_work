@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5lt-0A-Hn1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D6D-Mh-VBN">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -151,10 +151,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsa-Ij-MBT">
-                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="327" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="FGD-RL-RdR"/>
-                                    <constraint firstAttribute="width" constant="375" id="eg4-98-DHg"/>
+                                    <constraint firstAttribute="width" constant="327" id="uuN-iI-J7M"/>
                                 </constraints>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
@@ -172,7 +172,7 @@
                                             </button>
                                         </barButtonItem>
                                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="xh0-65-zmH">
-                                            <rect key="frame" x="112.5" y="13" width="150" height="30"/>
+                                            <rect key="frame" x="105" y="13" width="117" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -186,7 +186,7 @@
                                         </button>
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="cAu-s4-lw7">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="y3q-Ca-dGq">
-                                                <rect key="frame" x="276" y="13" width="83" height="30"/>
+                                                <rect key="frame" x="228" y="13" width="83" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -205,15 +205,27 @@
                                 <rect key="frame" x="0.0" y="100" width="375" height="498"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="At8-RE-6pe">
+                                <rect key="frame" x="329" y="63" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="m8b-hv-Qre"/>
+                                    <constraint firstAttribute="height" constant="30" id="wZh-ug-ukb"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="logout.png"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gq0-z3-CFl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="gq0-z3-CFl" firstAttribute="bottom" secondItem="SsH-xK-zSQ" secondAttribute="bottom" id="FbP-qu-DqT"/>
                             <constraint firstItem="fsa-Ij-MBT" firstAttribute="leading" secondItem="gq0-z3-CFl" secondAttribute="leading" id="Ipw-bZ-RCw"/>
-                            <constraint firstItem="fsa-Ij-MBT" firstAttribute="trailing" secondItem="gq0-z3-CFl" secondAttribute="trailing" id="ONi-tJ-9ec"/>
+                            <constraint firstItem="gq0-z3-CFl" firstAttribute="trailing" secondItem="fsa-Ij-MBT" secondAttribute="trailing" constant="48" id="LuY-Fi-qbQ"/>
                             <constraint firstItem="gq0-z3-CFl" firstAttribute="trailing" secondItem="SsH-xK-zSQ" secondAttribute="trailing" id="Sty-iK-fFV"/>
-                            <constraint firstItem="SsH-xK-zSQ" firstAttribute="top" secondItem="fsa-Ij-MBT" secondAttribute="bottom" id="gV4-1l-5Ae"/>
+                            <constraint firstItem="SsH-xK-zSQ" firstAttribute="top" secondItem="fsa-Ij-MBT" secondAttribute="bottom" id="Ya7-Go-wa2"/>
+                            <constraint firstItem="At8-RE-6pe" firstAttribute="top" secondItem="gq0-z3-CFl" secondAttribute="top" constant="7" id="hlK-O3-i87"/>
+                            <constraint firstItem="SsH-xK-zSQ" firstAttribute="top" secondItem="At8-RE-6pe" secondAttribute="bottom" constant="7" id="i52-K5-qzA"/>
+                            <constraint firstItem="At8-RE-6pe" firstAttribute="leading" secondItem="fsa-Ij-MBT" secondAttribute="trailing" constant="2" id="pF4-1V-13E"/>
+                            <constraint firstItem="gq0-z3-CFl" firstAttribute="trailing" secondItem="At8-RE-6pe" secondAttribute="trailing" constant="16" id="r51-4B-qqF"/>
                             <constraint firstItem="SsH-xK-zSQ" firstAttribute="leading" secondItem="gq0-z3-CFl" secondAttribute="leading" id="uui-ZQ-xWk"/>
                             <constraint firstItem="fsa-Ij-MBT" firstAttribute="top" secondItem="gq0-z3-CFl" secondAttribute="top" id="xM1-1g-eEc"/>
                         </constraints>
@@ -1037,6 +1049,7 @@
         <image name="layer-211.png" width="492" height="204.5"/>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="logo.png" width="96" height="96"/>
+        <image name="logout.png" width="384" height="384"/>
         <image name="newspaper" catalog="system" width="128" height="108"/>
         <image name="phone" catalog="system" width="128" height="115"/>
         <image name="pin2x-1.png" width="188" height="176"/>
