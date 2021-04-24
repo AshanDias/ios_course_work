@@ -73,7 +73,7 @@ let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selecto
     }
     
     func displayAlert(){
-        let alert = UIAlertController(title: "Error", message: "Value Cannot Be Empty!", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Error", message: "Some fields are empty!", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
