@@ -71,14 +71,34 @@ let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selecto
             }
         }
     }
+    
+    func displayAlert(){
+        let alert = UIAlertController(title: "Error", message: "Value Cannot Be Empty!", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
      
     @IBAction func btnAdd(_ sender: Any) {
        
+        if(name.text!.isEmpty || desc.text!.isEmpty || price.text!.isEmpty || imageId.isEmpty || catSelectedItem.isEmpty ||  discount.text!.isEmpty){
+            displayAlert()
+        }else{
+            
+        
+        
         
         let menu=MenuItem(name: name.text!, desc: desc.text!, price: Double(price.text!)!, img: imageId, category: catSelectedItem, discount: Int(discount.text!)!, sellType: sellType.isOn)
         
+        
+        
+        
             let child = Int.random(in: 0...1000)
         self.database.child("MenuItems").child(String(child)).setValue(menu.getJSON())
+            
+            let alert = UIAlertController(title: "Success", message: "Row Added Success!", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
   
