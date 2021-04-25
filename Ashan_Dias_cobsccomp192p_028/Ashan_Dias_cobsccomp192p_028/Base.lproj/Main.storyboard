@@ -94,14 +94,17 @@
                     <navigationItem key="navigationItem" id="gbk-lK-psg"/>
                     <connections>
                         <outlet property="button" destination="RXz-8Y-54b" id="B4c-22-zAh"/>
+                        <outlet property="txt_email" destination="SSB-Cn-Aed" id="v0k-Oh-2gJ"/>
+                        <outlet property="txt_pwd" destination="cVt-2Q-pax" id="awf-Hl-ltE"/>
                         <segue destination="5lt-0A-Hn1" kind="show" identifier="Register" id="M28-K1-Rk2"/>
                         <segue destination="RnS-KC-pQA" kind="show" identifier="forgotpwdFromLogin" id="6on-1h-8mq"/>
+                        <segue destination="D6D-Mh-VBN" kind="show" identifier="loginSuccess" id="Ybf-O3-5sT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="LRs-eC-WmP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2350" y="116"/>
+            <point key="canvasLocation" x="-3140" y="295"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Z9f-hF-Huk">
@@ -1044,7 +1047,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Hdc-j0-bmb"/>
+        <segue reference="6on-1h-8mq"/>
+        <segue reference="Ybf-O3-5sT"/>
         <segue reference="1Ll-OK-8OY"/>
     </inferredMetricsTieBreakers>
     <resources>

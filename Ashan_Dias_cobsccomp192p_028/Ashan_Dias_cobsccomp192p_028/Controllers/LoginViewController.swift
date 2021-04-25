@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var button:UIButton!
+    @IBOutlet weak var txt_email: UITextField!
+    @IBOutlet weak var txt_pwd: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         setBtn()
@@ -17,6 +20,24 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func Login(_ sender: Any) {
+        
+        Auth.auth().signIn(withEmail: txt_email.text!, password: txt_pwd.text!) { [weak self] authResult, error in
+            guard let user = authResult?.user, error == nil else {
+                self!.createAlert(title: "Error", message: error!.localizedDescription)
+                print("error",error)
+                return
+                }
+                
+            self!.performSegue(withIdentifier: "loginSuccess", sender: self)
+            
+
+        }
+    }
+    
+    func createAlert(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func Register(_ sender: Any) {
