@@ -20,6 +20,7 @@ class RegisterViewController: UIViewController {
     private let db = Database.database().reference()
     override func viewDidLoad() {
         super.viewDidLoad()
+        txt_email.autocorrectionType = .no
         setBtn()
         // Do any additional setup after loading the view.
     }

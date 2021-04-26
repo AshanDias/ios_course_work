@@ -16,6 +16,7 @@ class ForgetPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setBtn()
+        txt_email.autocorrectionType = .no
         // Do any additional setup after loading the view.
     }
     
