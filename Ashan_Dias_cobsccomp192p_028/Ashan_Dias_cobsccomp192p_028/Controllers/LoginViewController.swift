@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var button:UIButton!
     @IBOutlet weak var txt_email: UITextField!
     @IBOutlet weak var txt_pwd: UITextField!
-    
+    let authService = AuthService()
     override func viewDidLoad() {
         super.viewDidLoad()
         setBtn()
@@ -22,17 +22,26 @@ class LoginViewController: UIViewController {
 
     @IBAction func Login(_ sender: Any) {
         
-        Auth.auth().signIn(withEmail: txt_email.text!, password: txt_pwd.text!) { [weak self] authResult, error in
-            guard let user = authResult?.user, error == nil else {
-                self!.createAlert(title: "Error", message: error!.localizedDescription)
-                print("error",error)
-                return
-                }
-                
-            self!.performSegue(withIdentifier: "loginSuccess", sender: self)
+     let result1 = authService.validateEmail(email: txt_email.text!)
+        let result2 = authService.isValidPassword(pwd: txt_pwd.text!)
+        
+        if(result1 && result2 ){
             
+            Auth.auth().signIn(withEmail: txt_email.text!, password: txt_pwd.text!) { [weak self] authResult, error in
+                guard let user = authResult?.user, error == nil else {
+                    self!.createAlert(title: "Error", message: error!.localizedDescription)
+                    print("error",error)
+                    return
+                    }
 
+                self!.performSegue(withIdentifier: "loginSuccess", sender: self)
+
+
+            }
+        }else{
+            createAlert(title: "Error", message: "Email or password badly formatted!")
         }
+      
     }
     
     func createAlert(title:String, message:String){

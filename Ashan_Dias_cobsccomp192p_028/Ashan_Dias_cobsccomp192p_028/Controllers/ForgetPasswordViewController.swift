@@ -12,6 +12,7 @@ class ForgetPasswordViewController: UIViewController {
     @IBOutlet weak var button:UIButton!
     @IBOutlet weak var txt_email: UITextField!
     let auth = Auth.auth()
+    let authService = AuthService()
     override func viewDidLoad() {
         super.viewDidLoad()
         setBtn()
@@ -26,16 +27,25 @@ class ForgetPasswordViewController: UIViewController {
     }
     
     @IBAction func Proceed(_ sender: Any) {
+        
+        let result1 = authService.validateEmail(email: txt_email.text!)
+       
         if isEmpty([txt_email]){
             displayAlert(title: "Field Empty", message: "You should at least provide your email address for forget password")
         }else{
-            auth.sendPasswordReset(withEmail: txt_email.text!, completion: {error in
-                if error == nil{
-                    self.displayAlert(title:"Message",message: "A Email is successfully submited to \(self.txt_email.text ?? "undefined")")
-                }else{
-                    self.alertEmailValidationErrorIfPresent(err: error!)
-                }
-            })
+            
+            if(result1){
+                auth.sendPasswordReset(withEmail: txt_email.text!, completion: {error in
+                    if error == nil{
+                        self.displayAlert(title:"Message",message: "A Email is successfully submited to \(self.txt_email.text ?? "undefined")")
+                    }else{
+                        self.alertEmailValidationErrorIfPresent(err: error!)
+                    }
+                })
+            }else{
+                displayAlert(title: "Error", message: "Email badly formatted!")
+            }
+           
         }
 //        performSegue(withIdentifier: "preceedFPWD", sender: nil)
     }
@@ -64,6 +74,8 @@ class ForgetPasswordViewController: UIViewController {
         }
         if(message != nil){
             displayAlert(title: "Email field error", message: message!)
+        }else{
+            displayAlert(title: "Email field error", message: "Cannot find correct email address!")
         }
     }
 

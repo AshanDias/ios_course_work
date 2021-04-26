@@ -16,6 +16,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var txt_phone: UITextField!
     @IBOutlet weak var confirmpwd: UITextField!
     let auth = Auth.auth()
+    let authService = AuthService()
     private let db = Database.database().reference()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,10 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func btnRegister(_ sender: Any) {
-       
+        
+        let result1 = authService.validateEmail(email: txt_email.text!)
+           let result2 = authService.isValidPassword(pwd: txt_pwd.text!)
+        
         if(isEmpty([txt_email,txt_pwd,txt_phone,confirmpwd])){
             displayAlert(title:"Field Error",message: "Some fields are emptyty!")
         }else{
@@ -55,6 +59,9 @@ class RegisterViewController: UIViewController {
             }else{
                 
                 //start
+                
+            if(result1 && result2){
+                    
                 
                     
                 auth.createUser(withEmail: txt_email.text!, password: txt_pwd.text!, completion: ({result,err in
@@ -86,6 +93,9 @@ class RegisterViewController: UIViewController {
                     
                     
                 }))
+            }else{
+                displayAlert(title: "User registration failed", message: "Email or password badly formatted!")
+            }
                 
                 //end
                 
