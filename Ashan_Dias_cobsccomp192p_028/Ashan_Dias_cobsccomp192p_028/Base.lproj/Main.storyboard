@@ -62,6 +62,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zoo-If-Go0">
                                 <rect key="frame" x="142" y="492" width="90" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="register"/>
                                 <state key="normal" title="Register?"/>
                                 <connections>
                                     <action selector="Register:" destination="LRs-eC-WmP" eventType="touchUpInside" id="XjK-ky-KSB"/>
@@ -718,16 +719,19 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9y3-5u-rIq">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="email"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qnq-Mk-agI">
                                         <rect key="frame" x="0.0" y="66" width="315" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="pwd"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Dj-3B-qOj">
                                         <rect key="frame" x="0.0" y="132" width="315" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="cpwd"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
@@ -735,12 +739,14 @@
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sme-Le-YbE">
                                 <rect key="frame" x="30" y="433" width="315" height="34"/>
+                                <accessibility key="accessibilityConfiguration" identifier="tel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2g-R1-AS7">
                                 <rect key="frame" x="117.5" y="507" width="140" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="rg"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="AtB-Ej-yXH"/>
                                     <constraint firstAttribute="height" constant="50" id="noh-JN-v2h"/>
@@ -985,9 +991,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6on-1h-8mq"/>
-        <segue reference="Ybf-O3-5sT"/>
-        <segue reference="bak-G8-4Hd"/>
+        <segue reference="Hdc-j0-bmb"/>
+        <segue reference="qel-Wz-20k"/>
+        <segue reference="bMx-S7-JBk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="default_Image.png" width="50" height="50"/>
