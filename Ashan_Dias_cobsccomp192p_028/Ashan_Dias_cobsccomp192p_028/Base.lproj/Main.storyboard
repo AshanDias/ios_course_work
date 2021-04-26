@@ -22,11 +22,17 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SSB-Cn-Aed">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="emailtext">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cVt-2Q-pax">
                                         <rect key="frame" x="0.0" y="66" width="315" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="pwdtext">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
@@ -42,6 +48,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXz-8Y-54b">
                                 <rect key="frame" x="117.5" y="404" width="140" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="loginbtn"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="9KM-81-jyF"/>
                                     <constraint firstAttribute="height" constant="50" id="ZqL-J7-wHe"/>
@@ -64,6 +71,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpr-fz-mUa">
                                 <rect key="frame" x="127" y="544" width="120" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="forgotpwd"/>
                                 <state key="normal" title="Forget Password">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
@@ -211,6 +219,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="At8-RE-6pe">
                                 <rect key="frame" x="329" y="63" width="30" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="logoutbtn"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="m8b-hv-Qre"/>
                                     <constraint firstAttribute="height" constant="30" id="wZh-ug-ukb"/>
@@ -823,6 +832,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TMH-44-QND">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="34"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="emailtxt"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
@@ -831,6 +841,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ci3-sm-VhX">
                                 <rect key="frame" x="117" y="373" width="140" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="btnprocess"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="O0J-UC-pWl"/>
                                     <constraint firstAttribute="height" constant="50" id="TM2-gY-DX9"/>
@@ -847,6 +858,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CH2-nK-pbs">
                                 <rect key="frame" x="163" y="466" width="48" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="btnback"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="EWq-Qg-cUy"/>
                                     <constraint firstAttribute="height" constant="30" id="QNx-dY-ByI"/>
