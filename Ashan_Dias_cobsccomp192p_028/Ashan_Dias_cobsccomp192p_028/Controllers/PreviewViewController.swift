@@ -174,11 +174,20 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        if Auth.auth().currentUser != nil {
+         // print("auth","signin")
+          // ...
+        } else {
+            self.tabBarController?.performSegue(withIdentifier: "logout", sender: self.tabBarController)
+          // No user is signed in.
+          // ...
+        }
 //        loadData()
     
     }
     @IBAction func btnLogout(_ sender: Any) {
-        do { try Auth.auth().signOut() }
+        do { try auth.signOut() }
           catch { print("already logged out") }
         self.tabBarController?.performSegue(withIdentifier: "logout", sender: self.tabBarController)
     }
