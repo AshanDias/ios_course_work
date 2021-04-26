@@ -851,7 +851,7 @@
                                     <constraint firstAttribute="width" constant="48" id="EWq-Qg-cUy"/>
                                     <constraint firstAttribute="height" constant="30" id="QNx-dY-ByI"/>
                                 </constraints>
-                                <state key="normal" title="Cancel"/>
+                                <state key="normal" title="Back"/>
                                 <connections>
                                     <action selector="btnCancel:" destination="RnS-KC-pQA" eventType="touchUpInside" id="Dyr-N0-9c7"/>
                                 </connections>
@@ -878,102 +878,12 @@
                     <connections>
                         <outlet property="button" destination="ci3-sm-VhX" id="kSu-1W-IFw"/>
                         <outlet property="txt_email" destination="TMH-44-QND" id="Sfp-nB-f4X"/>
-                        <segue destination="vcb-0W-C0v" kind="show" identifier="preceedFPWD" id="QPW-CE-6Jn"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="cancelForgetpwd" id="bak-G8-4Hd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3A-fK-Md9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-903" y="-831"/>
-        </scene>
-        <!--Retrive Password View Controller-->
-        <scene sceneID="QD5-T2-BNw">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="vcb-0W-C0v" customClass="RetrivePasswordViewController" customModule="Ashan_Dias_cobsccomp192p_028" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ev2-vH-n7j">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="siY-nz-Q22">
-                                <rect key="frame" x="67" y="60" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="6XL-T9-UVI"/>
-                                    <constraint firstAttribute="width" constant="240" id="HuW-a7-L5E"/>
-                                </constraints>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="uMQ-EV-uQN">
-                                <rect key="frame" x="30" y="248" width="315" height="166"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cex-Ba-T9V">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WCZ-nP-FmL">
-                                        <rect key="frame" x="0.0" y="66" width="315" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-Enter New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mhp-bP-VQ8">
-                                        <rect key="frame" x="0.0" y="132" width="315" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvq-Py-Y4F">
-                                <rect key="frame" x="117" y="468" width="140" height="50"/>
-                                <color key="backgroundColor" name="AccentColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="b7u-cv-ePb"/>
-                                    <constraint firstAttribute="height" constant="50" id="ujd-N8-Kct"/>
-                                </constraints>
-                                <state key="normal" title="Proceed">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="Login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tgh-bM-EwX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Xh-JT-9bz">
-                                <rect key="frame" x="148" y="553" width="78" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="au8-Si-goP"/>
-                                    <constraint firstAttribute="width" constant="78" id="v8w-7e-3t2"/>
-                                </constraints>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="Cancel:" destination="vcb-0W-C0v" eventType="touchUpInside" id="geO-k1-Dln"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="jiK-gK-SdM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="uMQ-EV-uQN" firstAttribute="leading" secondItem="jiK-gK-SdM" secondAttribute="leading" constant="30" id="0NU-jL-QXJ"/>
-                            <constraint firstItem="jiK-gK-SdM" firstAttribute="trailing" secondItem="siY-nz-Q22" secondAttribute="trailing" constant="68" id="3sa-G3-siF"/>
-                            <constraint firstItem="siY-nz-Q22" firstAttribute="leading" secondItem="jiK-gK-SdM" secondAttribute="leading" constant="67" id="4Iq-Im-4py"/>
-                            <constraint firstItem="jiK-gK-SdM" firstAttribute="trailing" secondItem="Rvq-Py-Y4F" secondAttribute="trailing" constant="118" id="VfM-gx-fL3"/>
-                            <constraint firstItem="siY-nz-Q22" firstAttribute="top" secondItem="jiK-gK-SdM" secondAttribute="top" constant="60" id="dXf-qJ-IyF"/>
-                            <constraint firstItem="1Xh-JT-9bz" firstAttribute="leading" secondItem="jiK-gK-SdM" secondAttribute="leading" constant="148" id="do5-eU-uCk"/>
-                            <constraint firstItem="Rvq-Py-Y4F" firstAttribute="leading" secondItem="jiK-gK-SdM" secondAttribute="leading" constant="117" id="dpm-Bv-Via"/>
-                            <constraint firstItem="uMQ-EV-uQN" firstAttribute="top" secondItem="siY-nz-Q22" secondAttribute="bottom" constant="60" id="fLx-bI-a0t"/>
-                            <constraint firstItem="1Xh-JT-9bz" firstAttribute="top" secondItem="Rvq-Py-Y4F" secondAttribute="bottom" constant="35" id="gF7-tS-boe"/>
-                            <constraint firstItem="Rvq-Py-Y4F" firstAttribute="top" secondItem="uMQ-EV-uQN" secondAttribute="bottom" constant="54" id="hLL-a8-CJf"/>
-                            <constraint firstItem="jiK-gK-SdM" firstAttribute="trailing" secondItem="uMQ-EV-uQN" secondAttribute="trailing" constant="30" id="mgj-2P-XnG"/>
-                            <constraint firstItem="jiK-gK-SdM" firstAttribute="trailing" secondItem="1Xh-JT-9bz" secondAttribute="trailing" constant="149" id="sVF-lY-SsC"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="NnD-nf-Ufq"/>
-                    <connections>
-                        <outlet property="button" destination="Rvq-Py-Y4F" id="huL-xT-uIf"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="cancelFPWD" id="TnY-pO-n3y"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DOp-En-3fU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-20" y="-832.53373313343332"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="Nau-md-agV">
@@ -1065,7 +975,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="6on-1h-8mq"/>
         <segue reference="Ybf-O3-5sT"/>
-        <segue reference="TnY-pO-n3y"/>
+        <segue reference="bak-G8-4Hd"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="default_Image.png" width="50" height="50"/>
