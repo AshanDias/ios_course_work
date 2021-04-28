@@ -161,7 +161,12 @@ class PreviewViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 btn_item.isEnabled=true
                }
               
-           }
+            }else{
+                self.tbl_menu.reloadData()
+                self.refreshControl?.endRefreshing()
+                btn_cat.isEnabled=true
+                btn_item.isEnabled=true
+            }
             
         }
     }
